@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\JenisBahan;
 use App\Models\Produksi;
+use App\Models\Mesin;
+use App\Models\Pesanan;
+use App\Models\User;
 use App\Models\DetailProduksi;
 
 class ProduksiController extends Controller
@@ -109,5 +112,14 @@ class ProduksiController extends Controller
         $pilih_jenis = JenisBahan::all();
         $produksi = Produksi::all();
         return view('home.produksi.index',compact('pilih_jenis','produksi'));
+    }
+
+    public function createAdmin()
+    {
+        $petugas = User::where('level','=','Petugas')->get();
+        $mesin = Mesin::all();
+        $pilih_jenis = JenisBahan::all();
+        $order = Pesanan::where('status','=','dalam antrian')->get();
+        return view('home.produksi.proses',compact('order','pilih_jenis','mesin'));
     }
 }

@@ -25,7 +25,7 @@ class DashboardController extends Controller
     public function index()
     {
         // $adm = 'Admin';
-        $user = User::where('level','=','admin')->first();
+        $user = User::where('level','=','admin')->get();
         return view('page.desktop',compact('user'));
     }
     public function dashboard()

@@ -20,14 +20,8 @@ class CreateDetailProduksisTable extends Migration
             $table->string('status');
             $table->date('tanggal');
             $table->text('note');
-            $table->text('model');
-            $table->biginteger('id_mesin');
             $table->biginteger('id_pemesan');
             $table->integer('jumlah_produksi');
-            $table->integer('profit');
-            $table->integer('berat');
-            $table->integer('harga_jual');
-            $table->biginteger('id_bahan');
             $table->biginteger('id_produksi');
             $table->biginteger('waktu');
             $table->timestamps();

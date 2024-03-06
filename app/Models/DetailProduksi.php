@@ -12,18 +12,17 @@ class DetailProduksi extends Model
     protected $fillable = [
         'tanggal',
         'note',
-        'model',
+
         'id_pemesan',
         'jumlah_produksi',
-        'berat',
+
         'nama_model',
         'status',
-        'profit',
-        'id_bahan',
-        'id_mesin',
+        
+
         'waktu',
         'id_produksi',
-        'harga_jual',
+
         'petugas',
     ];
 

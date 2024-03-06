@@ -8,7 +8,7 @@
                 <div class="card-body">
                  <h4 class="card-tittle">
                     Production Page
-                    {{-- <a href="//create">tambah data +</a> --}}
+                    <a href="/produksi/tambah">tambah data +</a>
                  </h4>
                  <div class="table-responsive">
                     <br>
