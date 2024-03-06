@@ -18,8 +18,8 @@ class CreateMesinsTable extends Migration
             $table->string('nama');
             $table->string('jenis_mesin');
             $table->date('tgl_beli');
-            $table->integer('harga_asli');
-            $table->integer('harga_buku');
+            $table->bigInteger('harga_asli');
+            $table->bigInteger('harga_buku');
             $table->integer('umur');
             $table->integer('inflansi');
             $table->integer('jam_bln');

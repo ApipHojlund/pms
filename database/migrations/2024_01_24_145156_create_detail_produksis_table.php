@@ -15,7 +15,6 @@ class CreateDetailProduksisTable extends Migration
     {
         Schema::create('detail_produksis', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_model');
             $table->string('petugas');
             $table->string('status');
             $table->date('tanggal');

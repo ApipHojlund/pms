@@ -12,17 +12,11 @@ class DetailProduksi extends Model
     protected $fillable = [
         'tanggal',
         'note',
-
         'id_pemesan',
         'jumlah_produksi',
-
-        'nama_model',
         'status',
-        
-
         'waktu',
         'id_produksi',
-
         'petugas',
     ];
 
@@ -52,5 +46,9 @@ class DetailProduksi extends Model
     public function Produksi()
     {
         return $this->belongsTo(Produksi::class, 'id_produksi', 'id');
+    }
+    public function Detail()
+    {
+        return $this->hasMany(DetailProduksi::class, 'id_detail', 'id');
     }
 }

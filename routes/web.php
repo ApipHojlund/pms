@@ -174,6 +174,7 @@ Route::get('/order/{id}/view-document', [OrderController::class, 'viewDocument']
 
 //produksi
 Route::get('/produksi',[ProduksiController::class,'utama'])->middleware('admin');
+Route::post('/pesanan/proses',[ProduksiController::class,'store'])->middleware('admin');
 Route::get('/produksi/tambah',[ProduksiController::class,'createAdmin'])->middleware('admin');
 Route::get('/produksi/{id}/hapus',[ProduksiController::class,'hapus'])->middleware('admin');
 Route::post('/produksi/{id}/update',[ProduksiController::class,'update'])->middleware('admin');

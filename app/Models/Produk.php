@@ -10,6 +10,7 @@ class Produk extends Model
     use HasFactory;
 
     protected $fillable = [
+        'nama_model',
         'model',
         'id_bahan',
         'id_mesin',
@@ -21,7 +22,7 @@ class Produk extends Model
 
     protected $primaryKey = 'id';
 
-    public function DetailProduksi()
+    public function Detail()
     {
         return $this->belongsTo(DetailProduksi::class, 'id_detail', 'id');
     }

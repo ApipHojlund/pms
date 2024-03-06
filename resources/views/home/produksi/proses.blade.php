@@ -13,6 +13,15 @@
                     @endphp
                     <div class="card-body">
                         <form action="/pesanan/proses" method="post">
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                             @csrf
                             <div class="col-lg-12">
                                 <div class="card">
@@ -27,7 +36,7 @@
                                                 Select
                                             </div>
                                         </div>
-                                        <div class="col-lg-3">
+                                        <div class="col-lg-2">
                                             <label for="">
                                                 Nama Model
                                             </label>
@@ -47,7 +56,7 @@
                                                 Material
                                             </label>
                                         </div>
-                                        <div class="col-lg-1">
+                                        <div class="col-lg-2">
                                             <label for="">
                                                 File
                                             </label>
@@ -64,17 +73,17 @@
                                             </div>
                                             <div class="col-lg-1">
                                                 <div class="form-check align-center">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                        id="" name="selected_item[]" />
+                                                    <input class="form-check-input" type="checkbox"
+                                                        value="{{ $item->id }}" id="" name="selected_item[]" />
                                                 </div>
                                             </div>
-                                            <div class="col-lg-3">
+                                            <div class="col-lg-2">
                                                 <label for="">
                                                     {{ $item->nama_model }}
-                                                </label><br>
+                                                </label><br><br>
                                                 <label for="">
                                                     <a href="/pemesanan/{{ $item->id }}/detail"
-                                                        class="btn btn-info gap-2">Detail</a>
+                                                        class="btn btn-info btn-md">Detail</a>
                                                 </label>
                                             </div>
                                             <div class="col-lg-2">
@@ -92,10 +101,10 @@
                                                     {{ $item->Bahan->nama }}
                                                 </label>
                                             </div>
-                                            <div class="col-lg-1">
+                                            <div class="col-lg-2">
                                                 <label for="">
-                                                    <a class="btn btn-info" href="/order/{{ $item->id }}/view-document"
-                                                        target="_blank">
+                                                    <a class="btn btn-info mt-3"
+                                                        href="/order/{{ $item->id }}/view-document" target="_blank">
                                                         Lihat Dokumen
                                                     </a>
                                                 </label>
@@ -103,46 +112,44 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-12">
-                                    <hr>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="mb-3">
-                                        <label for="" class="form-label">Machine</label>
-                                        <select class="form-select form-select-md" name="id_mesin[]" id="id_mesin" multiple>
-                                            @foreach ($mesin as $item)
-                                                <option value="{{ $item->id }}">{{ $item->nama }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="" class="form-label">Petugas</label>
-                                        <select class="form-select form-select-lg" name="petugas" id="">
-                                            @foreach ($petugas as $pet)
-                                                <option value="{{ $pet->nama }}">{{ $pet->nama }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="" class="form-label">profit</label>
-                                        <input type="number" class="form-control text-light" name="profit" id=""
-                                            aria-describedby="helpId" placeholder="" />
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="" class="form-label">Processing Time</label>
-                                        <input type="number" class="form-control text-light" name="waktu" id=""
-                                            aria-describedby="helpId" placeholder="" />
-                                    </div>
-                                </div>
                             @endforeach
+                            <div class="col-lg-12">
+                                <hr>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Machine</label>
+                                    <select required class="form-select form-select-md bg-dark text-light" name="id_mesin[]"
+                                        id="id_mesin" multiple>
+                                        @foreach ($mesin as $item)
+                                            <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Petugas</label>
+                                    <select required class="form-select form-select bg-dark text-light" name="petugas"
+                                        id="">
+                                        @foreach ($petugas as $pet)
+                                            <option value="{{ $pet->nama }}">{{ $pet->nama }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">profit</label>
+                                    <input required type="number" class="form-control text-light" name="profit"
+                                        id="" aria-describedby="helpId" placeholder="" />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Processing Time</label>
+                                    <input required type="number" class="form-control text-light" name="waktu"
+                                        id="" aria-describedby="helpId" placeholder="" />
+                                </div>
+                            </div>
+
                     </div>
                     <button type="submit" class="btn d.grid btn-success">Submit</button>
-                    {{-- @foreach ($pesanan as $pesanan)
-                                @if ($pesanan->isEmpty())
-                                @else
-                                @endif
-                            @endforeach --}}
                     </form>
                 </div>
             </div>
