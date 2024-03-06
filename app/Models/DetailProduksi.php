@@ -27,14 +27,7 @@ class DetailProduksi extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function Bahan()
-    {
-        return $this->belongsTo(Bahan::class, 'id_bahan', 'id');
-    }
-    public function Mesin()
-    {
-        return $this->belongsTo(Mesin::class, 'id_mesin', 'id');
-    }
+    
     public function Pemesan()
     {
         return $this->belongsTo(User::class, 'id_pemesan', 'id');

@@ -115,10 +115,16 @@ class ProduksiController extends Controller
      */
     public function show($id)
     {
-        $pilih_jenis = JenisBahan::all();
-        $detail = DetailProduksi::where('id_produksi', '=', $id)->get();
         $produksi = Produksi::find($id);
-        return view('home.produksi.detail', compact('detail', 'pilih_jenis', 'produksi'));
+        $detail = DetailProduksi::where('id_produksi', '=', $id)->get();
+        $pilih_jenis = JenisBahan::all();
+        $produk = collect(); // Membuat koleksi kosong untuk menampung hasil
+
+        foreach ($detail as $item) {
+            $idd = $item->id; // Mengakses properti id dari setiap objek DetailProduksi
+            $produk->push(Produk::where('id_detail', $idd)->get()); // Menambahkan hasil query ke dalam koleksi produk
+        }
+        return view('home.produksi.detail', compact('detail', 'pilih_jenis', 'produksi', 'produk'));
     }
 
     /**

@@ -19,27 +19,27 @@
                             <tr>
                                 <td>Status</td>
                                 <td align="left">:</td>
-                                <td>{{ $detail->status }}</td>
+                                <td>{{ $detail->Detail->status }}</td>
                             </tr>
                             <tr>
                                 <td>Date</td>
                                 <td align="left">:</td>
-                                <td>{{ $detail->tanggal }}</td>
+                                <td>{{ $detail->Detail->tanggal }}</td>
                             </tr>
                             <tr>
                                 <td>Note</td>
                                 <td align="left">:</td>
-                                <td>{{ $detail->note }}</td>
+                                <td>{{ $detail->Detail->note }}</td>
                             </tr>
                             <tr>
                                 <td>Customer</td>
                                 <td align="left">:</td>
-                                <td>{{ $detail->Pemesan->nama }}</td>
+                                <td>{{ $detail->Detail->Pemesan->nama }}</td>
                             </tr>
                             <tr>
                                 <td>Product Qty</td>
                                 <td align="left">:</td>
-                                <td>{{ $detail->jumlah_produksi }}</td>
+                                <td>{{ $detail->Detail->jumlah_produksi }}</td>
                             </tr>
                             <tr>
                                 <td>Material</td>
@@ -49,12 +49,12 @@
                             <tr>
                                 <td>Petugas</td>
                                 <td align="left">:</td>
-                                <td>{{ $detail->petugas }}</td>
+                                <td>{{ $detail->Detail->petugas }}</td>
                             </tr>
                             <tr>
                                 <td>Waktu Pengerjaan</td>
                                 <td align="left">:</td>
-                                <td>{{ $detail->waktu }}</td>
+                                <td>{{ $detail->Detail->waktu }}</td>
                             </tr>
                             <tr>
                                 <td>Profit</td>
@@ -69,7 +69,7 @@
                             <tr>
                                 <td>Kode Produksi</td>
                                 <td align="left">:</td>
-                                <td>{{ $detail->id_produksi }}</td>
+                                <td>{{ $detail->Detail->id_produksi }}</td>
                             </tr>
                             <tr>
                                 <td>Harga Jual Satuan</td>
@@ -80,7 +80,7 @@
                                 <td>Model   </td>
                                 <td align="left">:</td>
                                 <td>
-                                    <a href="/order/{{ $detail->id }}/view-document" target="_blank">
+                                    <a href="/order/{{ $detail->id }}/view-document" target="_blank">File
                                     </a>
                                 </td>
                             </tr>

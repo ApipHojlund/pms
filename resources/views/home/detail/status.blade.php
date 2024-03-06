@@ -16,10 +16,10 @@
                             <tr>
                                 <th scope="col">No</th>
                                 <th scope="col">Id</th>
-                                <th scope="col">Model Name</th>
+                                {{-- <th scope="col">Model Name</th> --}}
                                 <th scope="col">Status</th>
                                 <th scope="col">Model QTY</th>
-                                <th scope="col">Material</th>
+                                {{-- <th scope="col">Material</th> --}}
                                 <th scope="col">Production Code</th>
                                 <th>Aksi</th>
                             </tr>
@@ -32,10 +32,8 @@
                             <tr class="">
                                 <td>{{$no++}}</td>
                                 <td>{{$d->id}}</td>
-                                <td>{{$d->nama_model}}</td>
                                 <td>{{$d->status}}</td>
                                 <td>{{$d->jumlah_produksi}}</td>
-                                <td>{{$d->Bahan->nama}}</td>
                                 <td>{{$d->id_produksi}}</td>
                                 <td>
                                     <a href="/detail_produksi/{{$d->id}}/edit" class="btn btn-warning">Edit</a>

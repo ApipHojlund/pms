@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Models\Mesin;
 use App\Models\Produksi;
 use App\Models\DetailProduksi;
+use App\Models\Produk;
 use Carbon\Carbon;
 
 class DetailController extends Controller
@@ -72,7 +73,7 @@ class DetailController extends Controller
     public function show($id)
     {
         $pilih_jenis = JenisBahan::all();
-        $detail = DetailProduksi::find($id);
+        $detail = Produk::find($id);
         return view('home.detail.detail',compact('detail','pilih_jenis'));
     }
 
@@ -88,12 +89,12 @@ class DetailController extends Controller
         $mesin = Mesin::all();
         $customer = 'customer';
         $petug = 'petugas';
-        $order = DetailProduksi::find($id);
+        $produk = Produk::where('id_detail','=',$id)->get();
         $pilih_jenis = JenisBahan::all();
         $bahan = Bahan::all();
         $user = User::where('level','=',$customer)->get();
         $petugas = User::where('level','=',$petug)->get();
-        return view('home.detail.edit',compact('petugas','mesin','pilih_jenis','order','bahan','user','detail'));
+        return view('home.detail.edit',compact('petugas','mesin','pilih_jenis','produk','bahan','user','detail'));
     }
 
     /**
@@ -105,15 +106,22 @@ class DetailController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //Add On
         $today = Carbon::today();
+
+        // Cari Data
         $detail = DetailProduksi::find($id);
 
-        $items = $request->id_mesin;
+        $produk = Produk::where('id_detail','=',$id)->first();
+
+        $items = $produk->id_mesin;
         $mesin = Mesin::find($items);
 
-        $idb = $request->id_bahan;
-        $bahan= Bahan::find($idb);
+        $idb = $produk->id_bahan;
+        $bahan = Bahan::find($idb);
 
+
+        //Ngitung
         $harga_bahan = $bahan->harga * $request->berat;
 
         $biaya = $mesin->pembulatan_biaya * $request->waktu;
@@ -127,18 +135,20 @@ class DetailController extends Controller
             'nama_model' => $request->nama_model,
             'tanggal' => $today,
             'status' => $request->status,
-            'model' => $request->model,
             'note' => $request->note,
             'jumlah_produksi' => $request->jumlah_produksi,
-            'berat' => $request->berat,
             'id_pemesan' => $request->id_pemesan,
-            'id_bahan' => $request->id_bahan,
-            'id_mesin' => $request->id_mesin,
             'petugas' => $request->petugas,
-            'profit' => $request->profit,
             'waktu' => $request->waktu,
-            'harga_jual' => $harga_jual
         ]);
+        // $produk->update([
+        //     'model' => $request->model,
+        //     'berat' => $request->berat,
+        //     'id_bahan' => $request->id_bahan,
+        //     'id_mesin' => $request->id_mesin,
+        //     'profit' => $request->profit,
+        //     'harga_jual' => $harga_jual
+        // ]);
         return redirect('/detail_produksi');
     }
 
