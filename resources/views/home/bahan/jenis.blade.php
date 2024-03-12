@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-body">
                     @if ($bahan->isEmpty())
-                        <h4 class="text-light">tidak ada data yang ditampilkan</h4>
+                        <h4 class="">tidak ada data yang ditampilkan</h4>
                         <a href="/bahan/create" class="btn btn-block btn-light">Tambahkan Data Baru</a>
                     @else
                     <div class="row">

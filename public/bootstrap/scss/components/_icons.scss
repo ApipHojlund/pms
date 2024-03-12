@@ -4,12 +4,13 @@
   border-left: 1px solid $border-color;
   border-top: 1px solid $border-color;
   >div {
+    background: $white;
     border-bottom: 1px solid $border-color;
     border-right: 1px solid $border-color;
     @include display-flex;
     @include align-items(center);
     padding:15px 15px;
-    font-weight: normal;
+    font-family: $type1-regular;
     font-size: $default-font-size;
 
     i {

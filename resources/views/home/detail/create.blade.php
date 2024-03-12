@@ -55,12 +55,12 @@
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">profit</label>
-                                <input type="number" class="form-control text-light" name="profit" id=""
+                                <input type="number" class="form-control " name="profit" id=""
                                     aria-describedby="helpId" placeholder="" />
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Processing Time</label>
-                                <input type="number" class="form-control text-light" name="waktu" id=""
+                                <input type="number" class="form-control " name="waktu" id=""
                                     aria-describedby="helpId" placeholder="" />
                             </div>
                             <div class="mb-3">
@@ -71,7 +71,7 @@
                             <div class="mb-3">
                                 <label hidden for="" class="form-label">Jumlah Produksi</label>
                                 <input value="{{ $order->jumlah }}" hidden type="number"
-                                    class="form-control text-light" name="jumlah_produksi" id=""
+                                    class="form-control " name="jumlah_produksi" id=""
                                     aria-describedby="helpId" placeholder="" />
                             </div>
                             <button type="submit" class="btn btn-success">Submit</button>

@@ -56,7 +56,7 @@ class DashboardController extends Controller
                         ->count();
         $dalam_proses = DetailProduksi::where('status','=','dalam proses')->get()
                         ->count();
-        $statuses = [ 'dalam proses', 'ditahan', 'berhenti', 'selesai'];
+        $statuses = [ 'dalam proses',  'berhenti','ditahan', 'selesai'];
         $data = [];
 
         foreach ($statuses as $status) {

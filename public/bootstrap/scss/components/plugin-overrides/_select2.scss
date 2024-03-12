@@ -8,7 +8,6 @@
   .select2-dropdown,
   .select2-selection--multiple {
     border-color: $border-color;
-    background: $content-bg;
     .select2-search__field {
       border-color: $border-color;
     }
@@ -20,7 +19,6 @@
       @extend .form-control;
     }
     .select2-selection__rendered {
-      color: $white;
       line-height: 14px;
     }
   }

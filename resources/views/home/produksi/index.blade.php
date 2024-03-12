@@ -58,8 +58,8 @@
                 <form action="" method="post" id="updateForm">
                     @csrf
                     <div class="mb-3">
-                        <label for="" class="form-label text-light">Keterangan</label>
-                        <input type="text" class="form-control text-light" name="keterangan" id="tipe" aria-describedby="helpId" placeholder="KETERANGAN">
+                        <label for="" class="form-label ">Keterangan</label>
+                        <input type="text" class="form-control " name="keterangan" id="tipe" aria-describedby="helpId" placeholder="KETERANGAN">
                     </div>
                 </form>
             </div>

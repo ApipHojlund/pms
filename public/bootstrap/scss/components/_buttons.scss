@@ -1,11 +1,12 @@
 /* Buttons */
 
 .btn {
-  font-size: $btn-font-size;
+  font-size: 12px;
   line-height: 1;
-  font-weight: normal;
+  font-family: $type1-bold;
+  font-weight: 600;
   i {
-    margin-right: .3125rem;
+    font-size: 12px;
   }
   &.btn-rounded {
     @include border-radius(50px);
@@ -43,15 +44,9 @@
     height: 50px;
     padding: 0;
   }
-  &.get-started-btn {
-    font-size: 0.75rem;
-    border: 1px solid rgba(#ffffff, 0.3);
-    font-weight: $font-weight-medium;
-    padding: 0.9375rem 1.0625rem;
-    @media (max-width: 576px) {
-      font-size: 0.6rem;
-      padding: 0.4375rem 0.6625rem;
-    }
+  &.sidebar-btn {
+    font-size: 1.25rem;
+    font-weight: bold;
   }
 }
 
@@ -84,19 +79,17 @@
   .btn-inverse-#{$color} {
     @include button-inverse-variant($value);
   }
-  .btn-#{$color} {
-    &:not(.btn-light):not(.btn-secondary) {
+  .btn-#{$color}:not(.btn-light) {
+    color: $white;
+    &:hover,
+    &:focus,
+    &:active {
       color: $white;
-      &:hover,
-      &:focus,
-      &:active {
-        color: $white;
-      }
-      &:focus,
-      &:active {
-        background: $value;
-        border-color: $value;
-      }
     }
-  }
+    &:focus,
+    &:active {
+      background: $value;
+      border-color: $value;
+    }
+  } 
 }

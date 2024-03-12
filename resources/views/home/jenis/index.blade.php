@@ -29,7 +29,7 @@
                                               <label for="" class="form-label">Type</label>
                                               <input
                                                   type="text"
-                                                  class="form-control text-light"
+                                                  class="form-control "
                                                   name="tipe"
                                                   id=""
                                                   aria-describedby="helpId"
@@ -88,10 +88,10 @@
                                                     <form action="/jenis-bahan/{{$j->id}}/update" method="post">
                                                         @csrf
                                                         <div class="mb-3">
-                                                            <label for="" class="form-label text-light">Tipe</label>
+                                                            <label for="" class="form-label ">Tipe</label>
                                                             <input value="{{$j->tipe}}"
                                                                 type="text"
-                                                                class="form-control text-light"
+                                                                class="form-control "
                                                                 name="tipe"
                                                                 id=""
                                                                 aria-describedby="helpId"
@@ -132,8 +132,8 @@
                 <form action="" method="post" id="updateForm">
                     @csrf
                     <div class="mb-3">
-                        <label for="" class="form-label text-light">Tipe</label>
-                        <input type="text" class="form-control text-light" name="tipe" id="tipe" aria-describedby="helpId" placeholder="TIPE">
+                        <label for="" class="form-label ">Tipe</label>
+                        <input type="text" class="form-control " name="tipe" id="tipe" aria-describedby="helpId" placeholder="TIPE">
                     </div>
                 </form>
             </div>

@@ -119,7 +119,7 @@
                             <div class="col-lg-12">
                                 <div class="mb-3">
                                     <label for="" class="form-label">Machine</label>
-                                    <select required class="form-select form-select-md bg-dark text-light" name="id_mesin[]"
+                                    <select required class="form-select form-select-md bg-dark " name="id_mesin[]"
                                         id="id_mesin" multiple>
                                         @foreach ($mesin as $item)
                                             <option value="{{ $item->id }}">{{ $item->nama }}</option>
@@ -129,7 +129,7 @@
 
                                 <div class="mb-3">
                                     <label for="" class="form-label">Petugas</label>
-                                    <select required class="form-select form-select bg-dark text-light" name="petugas"
+                                    <select required class="form-select form-select bg-dark " name="petugas"
                                         id="">
                                         @foreach ($petugas as $pet)
                                             <option value="{{ $pet->nama }}">{{ $pet->nama }}</option>
@@ -138,12 +138,12 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="" class="form-label">profit</label>
-                                    <input required type="number" class="form-control text-light" name="profit"
+                                    <input required type="number" class="form-control " name="profit"
                                         id="" aria-describedby="helpId" placeholder="" />
                                 </div>
                                 <div class="mb-3">
                                     <label for="" class="form-label">Processing Time</label>
-                                    <input required type="number" class="form-control text-light" name="waktu"
+                                    <input required type="number" class="form-control " name="waktu"
                                         id="" aria-describedby="helpId" placeholder="" />
                                 </div>
                             </div>

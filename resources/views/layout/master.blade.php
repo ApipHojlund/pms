@@ -30,9 +30,13 @@
 
 <body>
     <div class="container-scroller">
+        <div class="container-fluid page-body-wrapper">
+        @include('layout.navbar')
+
         @include('layout.sidebar')
 
         @yield('konten')
+        </div>
     </div>
 
     <script src="{{ asset('template/vendors/base/vendor.bundle.base.js') }}"></script>

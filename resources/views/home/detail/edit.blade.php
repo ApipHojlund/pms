@@ -20,7 +20,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Note</label>
-                                <textarea class="form-control text-light" name="note" id="" rows="3" placeholder="NOTE">{{ $detail->note }}</textarea>
+                                <textarea class="form-control " name="note" id="" rows="3" placeholder="NOTE">{{ $detail->note }}</textarea>
                             </div>
 
                             <div class="mb-3">
@@ -34,12 +34,12 @@
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Processing Time</label>
-                                <input value="{{ $detail->waktu }}" type="number" class="form-control text-light text-light"
+                                <input value="{{ $detail->waktu }}" type="number" class="form-control  "
                                     name="waktu" id="" aria-describedby="helpId" placeholder="" />
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Jumlah Produksi</label>
-                                <input value="{{ $detail->jumlah_produksi }}" type="number" class="form-control text-light text-light"
+                                <input value="{{ $detail->jumlah_produksi }}" type="number" class="form-control  "
                                     name="jumlah_produksi" id="" aria-describedby="helpId" placeholder="" />
                             </div>
                             <div class="mb-3">
@@ -55,12 +55,12 @@
                             </div>
                             <div class="mb-3">
                                 <label for="form-label" hidden>Id Produksi</label>
-                                <input hidden class="form-control text-light"
+                                <input hidden class="form-control "
                                  type="number" name="id_produksi" value="{{ $detail->id_produksi }}" id="">
                             </div>
                             <div class="mb-3">
                                 <label hidden for="form-label" >Tanggal</label>
-                                <input  class="form-control text-light"
+                                <input  class="form-control "
                                  type="date" hidden name="id_produksi" value="{{ $detail->tanggal }}" id="">
                             </div>
                             <button type="submit" class="btn btn-success">Submit</button>

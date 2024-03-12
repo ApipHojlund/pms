@@ -14,7 +14,7 @@
                         <div class="mb-3">
                             <label for="" class="form-label">Nama</label>
                             <input type="text"
-                              class="form-control text-light" name="nama" id="" placeholder="nama">
+                              class="form-control " name="nama" id="" placeholder="nama">
                           </div>
                           @error('nama')
                                 <div class="alert alert-danger">{{ $message }}</div>
@@ -22,21 +22,21 @@
                         <div class="mb-3">
                             <label for="" class="form-label">Username</label>
                             <input type="text"
-                              class="form-control text-light" name="username" id="" aria-describedby="helpId" placeholder="username">
+                              class="form-control " name="username" id="" aria-describedby="helpId" placeholder="username">
                           </div>
                           @error('username')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                           <div class="mb-3">
                             <label for="" class="form-label">Password</label>
-                            <input type="password" class="form-control text-light" name="password" id="" placeholder="Password">
+                            <input type="password" class="form-control " name="password" id="" placeholder="Password">
                           </div>
                           @error('password')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                           <div class="mb-3">
                             <label for="" class="form-label">Alamat</label>
-                            <textarea class="form-control text-light" name="alamat" id="" placeholder="Alamat" rows="3"></textarea>
+                            <textarea class="form-control " name="alamat" id="" placeholder="Alamat" rows="3"></textarea>
                           </div>
                           @error('alamat')
                                 <div class="alert alert-danger">{{ $message }}</div>
@@ -44,7 +44,7 @@
                           <div class="mb-3">
                             <label for="" class="form-label">Nomor Telepon</label>
                             <input type="number"
-                              class="form-control text-light text-light" name="no_telp" id="" aria-describedby="helpId" placeholder="Nomor Telepon">
+                              class="form-control  " name="no_telp" id="" aria-describedby="helpId" placeholder="Nomor Telepon">
                           </div>
                             @error('no_telp')
                                 <div class="alert alert-danger">{{ $message }}</div>
@@ -53,7 +53,7 @@
                             <label for="" class="form-label">Masukan Foto</label>
                             <input
                                 type="file"
-                                class="form-control text-light"
+                                class="form-control "
                                 name="foto"
                                 id=""
                                 placeholder=""
@@ -62,7 +62,7 @@
                           </div>
                           <div class="mb-3">
                             <label for="" class="form-label">Level</label>
-                            <select required class="form-select form-select-md text-light bg-dark" name="level" id="">
+                            <select required class="form-select form-select-md  bg-dark" name="level" id="">
                                 <option selected disabled>-Select one-</option>
                                 <option value="admin">Admin</option>
                                 <option value="petugas">Petugas</option>

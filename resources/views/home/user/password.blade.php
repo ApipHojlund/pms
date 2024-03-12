@@ -13,7 +13,7 @@
                             @csrf
                             <div class="form-group">
                                 <label for="password" class="form-label">Input Old Password</label>
-                                <input class="form-control text-light" type="password" id="password" name="old_password"
+                                <input class="form-control " type="password" id="password" name="old_password"
                                     placeholder="Insert old password">
                                 @error('old_password')
                                     <span class="text-danger">{{ $message }}</span>
@@ -21,7 +21,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="newpassword" class="form-label">Input New Password</label>
-                                <input class="form-control text-light" type="password" id="newpassword" name="new_password"
+                                <input class="form-control " type="password" id="newpassword" name="new_password"
                                     placeholder="New Password">
                                 @error('new_password')
                                     <span class="text-danger">{{ $message }}</span>
@@ -29,7 +29,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="confirm_password" class="form-label">Confirm New Password</label>
-                                <input class="form-control text-light" type="password" id="confirm_password"
+                                <input class="form-control " type="password" id="confirm_password"
                                     name="new_password_confirmation" placeholder="Confirm Password">
                                 @error('new_password_confirmation')
                                     <span class="text-danger">{{ $message }}</span>

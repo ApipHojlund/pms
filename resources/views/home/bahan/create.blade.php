@@ -15,7 +15,7 @@
                             <label for="" class="form-label">Nama</label>
                             <input
                                 type="text"
-                                class="form-control text-light"
+                                class="form-control "
                                 name="nama"
                                 id=""
                                 aria-describedby="helpId"
@@ -29,7 +29,7 @@
                             <label for="" class="form-label">Harga</label>
                             <input
                                 type="number"
-                                class="form-control text-light"
+                                class="form-control "
                                 name="harga_bahan"
                                 id=""
                                 placeholder="Harga Bahan"
@@ -41,15 +41,15 @@
                         <div class="mb-3 form-group-row">
                             <label for="" class="form-label">Ukuran</label>
                             <div class="input-group mb-3">
-                                <input type="text" name="ukuran_x" class="form-control text-light" placeholder="Ukuran X" aria-label="Ukuran X">
+                                <input type="text" name="ukuran_x" class="form-control " placeholder="Ukuran X" aria-label="Ukuran X">
                             @error('ukuran_x')
                                 <div class="alert alert-danger">{{$message}}</div>
                             @enderror
-                                <input type="text" name="ukuran_y" class="form-control text-light" placeholder="Ukuran Y" aria-label="Ukuran Y">
+                                <input type="text" name="ukuran_y" class="form-control " placeholder="Ukuran Y" aria-label="Ukuran Y">
                             @error('ukuran_y')
                                 <div class="alert alert-danger">{{$message}}</div>
                             @enderror
-                                <input type="text" name="ukuran_z" class="form-control text-light" placeholder="Ukuran Z" aria-label="Ukuran Z">
+                                <input type="text" name="ukuran_z" class="form-control " placeholder="Ukuran Z" aria-label="Ukuran Z">
                             @error('ukuran_z')
                                 <div class="alert alert-danger">{{$message}}</div>
                             @enderror
@@ -68,7 +68,7 @@
                             <label hidden for="" class="form-label">Choose file</label>
                             <input hidden
                                 type="file"
-                                class="form-control text-light"
+                                class="form-control "
                                 name=""
                                 id=""
                                 placeholder=""
