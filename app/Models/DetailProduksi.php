@@ -27,7 +27,7 @@ class DetailProduksi extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    
+
     public function Pemesan()
     {
         return $this->belongsTo(User::class, 'id_pemesan', 'id');

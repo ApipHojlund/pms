@@ -1,15 +1,15 @@
 @extends('layout.master')
-@section('title','user')
+@section('title', 'user')
 @section('konten')
-<div class="content-wrapper">
-    <div class="row">
-        <div class="col-lg-14 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">
-                        <img src="{{ asset("image/user/$user->foto") }}" class="img img-lg" alt="">
-                        {{ $user->nama }}
-                    </h4>
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-lg-14 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <img src="{{ asset("image/user/$user->foto") }}" class="img img-lg" alt="">
+                            {{ $user->nama }}
+                        </h4>
                         <div class="table-responsive">
                             <table class="table text-light">
                                 <tr>
@@ -40,11 +40,11 @@
                             </table>
                         </div>
                         <a class="btn col-lg-5 mt-2 btn-info" href="/user/{{ Auth()->User()->id }}/setting">Edit Data</a>
-                        <a class="btn col-lg-5 mt-2 btn-primary" href="/user/{{ Auth()->User()->id }}/setting">Change Password</a>
+                        <a class="btn col-lg-5 mt-2 btn-primary" href="/user/{{ Auth()->User()->id }}/setting">Change
+                            Password</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
-
