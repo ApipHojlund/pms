@@ -138,7 +138,7 @@
       <li class="nav-item menu-items">
         <a class="nav-link" href="/pemesanan">
           <span class="menu-icon">
-            <i class="mdi mdi-chart-bar"></i>
+            <i class="mdi mdi-cart"></i>
           </span>
           <span class="menu-title">Pemesanan</span>
         </a>

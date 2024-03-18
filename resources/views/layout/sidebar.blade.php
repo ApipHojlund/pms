@@ -61,13 +61,13 @@
         </li>
         <li class="nav-item">
             <a class="nav-link" href="/pemesanan">
-                <span class="icon-bg"><i class="mdi mdi-chart-bar menu-icon"></i></span>
+                <span class="icon-bg"><i class="mdi mdi-cart menu-icon"></i></span>
                 <span class="menu-title">Pemesanan</span>
             </a>
         </li>
         <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-                <span class="icon-bg"><i class="mdi mdi-lock menu-icon"></i></span>
+                <span class="icon-bg"><i class="mdi mdi-format-list-bulleted menu-icon"></i></span>
                 <span class="menu-title">Detail Produksi</span>
                 <i class="menu-arrow"></i>
             </a>
@@ -82,11 +82,17 @@
             </div>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="/produk">
+                <span class="icon-bg"><i class="mdi mdi-cube-outline menu-icon"></i></span>
+                <span class="menu-title">Produk</span>
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link"
                 href="/produksi"
                 {{-- target="_blank" --}}>
                 <span class="icon-bg">
-                    <i class="mdi mdi-file-document-box menu-icon"></i>
+                    <i class="mdi mdi-library-plus menu-icon"></i>
                 </span>
                 <span class="menu-title">Produksi</span>
             </a>

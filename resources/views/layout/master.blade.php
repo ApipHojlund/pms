@@ -5,7 +5,10 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Corona Admin</title>
+    <title>
+        PMS el mejor del mundo
+    </title>
+
     <!-- plugins:css -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="{{ asset('bootstrap/vendors/mdi/css/materialdesignicons.min.css') }}">
@@ -19,6 +22,9 @@
     <link rel="stylesheet" href="{{ asset('bootstrap/vendors/owl-carousel-2/owl.theme.default.min.css') }}">
     <link rel="stylesheet" href="{{ asset('template/vendors/sweetalert2/sweetalert2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('template/vendors/datatable/dataTables.bootstrap4.min.css') }}">
+    {{-- select 2 css + js --}}
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
@@ -30,12 +36,12 @@
 
 <body>
     <div class="container-scroller">
-        <div class="container-fluid page-body-wrapper">
         @include('layout.navbar')
+        <div class="container-fluid page-body-wrapper">
 
-        @include('layout.sidebar')
+            @include('layout.sidebar')
 
-        @yield('konten')
+            @yield('konten')
         </div>
     </div>
 
@@ -71,6 +77,11 @@
             $('#id_mesin').select2();
         });
     </script>
+    <script>
+        $(document).ready(function() {
+            $('.js-example-basic-multiple').select2();
+        });
+    </script>
     <!-- container-scroller -->
     <!-- plugins:js -->
     <script src="{{ asset('bootstrap/vendors/js/vendor.bundle.base.js') }}"></script>
@@ -85,7 +96,7 @@
     {{-- sweet alert --}}
     <script src="{{ asset('template/vendors/sweetalert2/sweetalert2.min.js') }}"></script>
     {{-- select 2 --}}
-    <script src="{{ asset('template/vendors/select2/select2.min.js') }}"></script>
+    {{-- <script src="{{ asset('template/vendors/select2/select2.min.js') }}"></script> --}}
     <script src="{{ asset('template/vendors/select2/select2.min.js') }}"></script>
 
     <script src="js/jquery.cookie.js" type="text/javascript"></script>
@@ -107,7 +118,7 @@
     <script src="{{ asset('bootstrap/js/dashboard.js') }}"></script>
     <!-- End custom js for this page -->
     {{-- DataTable --}}
-
+    <script src="https://kit.fontawesome.com/your_fontawesome_kit_code.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

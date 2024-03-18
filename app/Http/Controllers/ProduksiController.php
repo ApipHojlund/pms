@@ -85,6 +85,7 @@ class ProduksiController extends Controller
                     'waktu' => $request->waktu,
                     'petugas' => $request->petugas,
                     'id_produksi' => $produksi->id,
+                    'kode_pesanan' => $pesanan->id,
                 ]);
 
                 // Tambahkan produk baru

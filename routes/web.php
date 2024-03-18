@@ -21,6 +21,7 @@ use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\MachineController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\DetailController;
+use App\Http\Controllers\ProdukController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -149,6 +150,10 @@ Route::post('/detail_produksi/{id}/store',[DetailController::class,'update'])->m
 Route::get('/jenis_bahan',[JenisController::class,'index'])->middleware('admin');
 Route::post('/jenis_bahan/store',[JenisController::class,'store'])->middleware('admin');
 Route::post('/jenis_bahan/{id}/update',[JenisController::class,'update'])->middleware('admin');
+
+
+//Produk
+Route::get('/produk',[ProdukController::class,'index'])->middleware('admin');
 
 
 //bahan

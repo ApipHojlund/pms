@@ -23,6 +23,7 @@ class CreateDetailProduksisTable extends Migration
             $table->integer('jumlah_produksi');
             $table->biginteger('id_produksi');
             $table->biginteger('waktu');
+            $table->biginteger('kode_pesanan');
             $table->timestamps();
         });
     }

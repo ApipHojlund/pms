@@ -61,7 +61,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Material</label>
-                            <select required class="form-select form-select-md bg-dark " name="id_bahan" id="">
+                            <select required class="form-select form-select-md  " name="id_bahan" id="">
                                 @foreach ($bahan as $item)
                                     <option value="{{ $item->id }}">{{ $item->nama }}</option>
                                 @endforeach
@@ -69,7 +69,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Customer</label>
-                            <select required class="form-select form-select-md bg-dark " name="id_pemesan" id="">
+                            <select required class="form-select form-select-md  " name="id_pemesan" id="">
                                 @foreach ($user as $pemesan)
                                     <option value="{{ $pemesan->id }}">{{ $pemesan->nama }}</option>
                                 @endforeach

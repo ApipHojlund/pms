@@ -9,6 +9,7 @@ use App\Models\Bahan;
 use App\Models\User;
 use App\Models\Mesin;
 use App\Models\Produksi;
+use App\Models\Produk;
 use App\Models\DetailProduksi;
 use Carbon\Carbon;
 
@@ -128,7 +129,7 @@ class DetailProduksiController extends Controller
     public function detail($id)
     {
         $pilih_jenis = JenisBahan::all();
-        $detail = DetailProduksi::find($id);
+        $detail = Produk::find($id);
         return view('page.detail_produksi.detail',compact('detail','pilih_jenis'));
     }
 

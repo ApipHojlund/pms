@@ -29,10 +29,10 @@ class AuthServiceProvider extends ServiceProvider
             return $user->level = 'Admin';
         });
         Gate::define('petugas', function(User $user){
-            return Auth()->User()->level =! 'Customer';
+            return Auth()->User()->level != 'Customer';
         });
         Gate::define('customer', function(User $user){
-            return $user->level = 'Customer';
+            return $user->level == 'Customer';
         });
         $this->registerPolicies();
 

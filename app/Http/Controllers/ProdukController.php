@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Produk;
+use App\Models\JenisBahan;
 use App\Http\Requests\StoreProdukRequest;
 use App\Http\Requests\UpdateProdukRequest;
 
@@ -15,7 +16,9 @@ class ProdukController extends Controller
      */
     public function index()
     {
-        //
+        $pilih_jenis = JenisBahan::all();
+        $produk = Produk::all();
+        return view('home.produk.index',compact('pilih_jenis','produk'));
     }
 
     /**

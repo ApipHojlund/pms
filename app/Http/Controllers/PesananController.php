@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\JenisBahan;
 use App\Models\Bahan;
+use App\Models\DetailProduksi;
 use App\Models\User;
 use App\Models\Pesanan;
 use Carbon\Carbon;
@@ -19,9 +20,14 @@ class PesananController extends Controller
     public function index()
     {
         $idp = Auth()->User()->id;
-        if (Auth()->User()->level =! 'admin') {
+        if (Auth()->User()->level == 'Customer') {
             $pilih_jenis = JenisBahan::all();
-            $order = Pesanan::where('id_pemesan','=',$idp)
+            $order = Pesanan::where('id_pemesan', '=', $idp)
+                ->get();
+            return view('page.pemesanan.index', compact('order', 'pilih_jenis'));
+        } elseif (Auth()->User()->level == 'Petugas') {
+            $pilih_jenis = JenisBahan::all();
+            $order = DetailProduksi::where('petugas', '=', $idp)
                 ->get();
             return view('page.pemesanan.index', compact('order', 'pilih_jenis'));
         } else {

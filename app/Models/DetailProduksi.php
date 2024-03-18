@@ -17,6 +17,7 @@ class DetailProduksi extends Model
         'status',
         'waktu',
         'id_produksi',
+        'kode_pesanan',
         'petugas',
     ];
 
@@ -43,5 +44,9 @@ class DetailProduksi extends Model
     public function Detail()
     {
         return $this->hasMany(DetailProduksi::class, 'id_detail', 'id');
+    }
+    public function Pesanan()
+    {
+        return $this->belongsTo(Pesanan::class, 'kode_pesanan', 'id');
     }
 }

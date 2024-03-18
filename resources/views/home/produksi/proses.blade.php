@@ -25,7 +25,7 @@
                             @csrf
                             <div class="col-lg-12">
                                 <div class="card">
-                                    <div class="row">
+                                    <div class="row icons-list">
                                         <div class="col-lg-1">
                                             <label for="">
                                                 No
@@ -67,24 +67,30 @@
                             @foreach ($order as $item)
                                 <div class="col-lg-12">
                                     <div class="card">
-                                        <div class="row">
+                                        <div class="row icons-list">
                                             <div class="col-lg-1">
                                                 {{ $no++ }}
                                             </div>
                                             <div class="col-lg-1">
-                                                <div class="form-check align-center">
+                                                {{-- <div class="form-check align-left"> --}}
                                                     <input class="form-check-input" type="checkbox"
                                                         value="{{ $item->id }}" id="" name="selected_item[]" />
-                                                </div>
+                                                {{-- </div> --}}
                                             </div>
                                             <div class="col-lg-2">
-                                                <label for="">
-                                                    {{ $item->nama_model }}
-                                                </label><br><br>
-                                                <label for="">
-                                                    <a href="/pemesanan/{{ $item->id }}/detail"
-                                                        class="btn btn-info btn-md">Detail</a>
-                                                </label>
+                                                <div class="row">
+                                                    <div class="col-lg-7">
+                                                        <label for="">
+                                                            {{ $item->nama_model }}
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-lg-1">
+                                                        <label for="">
+                                                            <a href="/pemesanan/{{ $item->id }}/detail"
+                                                                class="btn btn-info btn-md-2">Detail</a>
+                                                        </label>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="col-lg-2">
                                                 <label for="">
@@ -119,17 +125,17 @@
                             <div class="col-lg-12">
                                 <div class="mb-3">
                                     <label for="" class="form-label">Machine</label>
-                                    <select required class="form-select form-select-md bg-dark " name="id_mesin[]"
+                                    <select required multiple class="js-example-basic-multiple form-control" name="id_mesin[]"
                                         id="id_mesin" multiple>
                                         @foreach ($mesin as $item)
-                                            <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                                            <option class="" value="{{ $item->id }}">{{ $item->nama }}</option>
                                         @endforeach
                                     </select>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="" class="form-label">Petugas</label>
-                                    <select required class="form-select form-select bg-dark " name="petugas"
+                                    <select required class="form-select form-select " name="petugas"
                                         id="">
                                         @foreach ($petugas as $pet)
                                             <option value="{{ $pet->nama }}">{{ $pet->nama }}</option>
