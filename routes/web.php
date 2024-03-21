@@ -13,6 +13,7 @@ use App\Http\Controllers\BahanController;
 use App\Http\Controllers\PesananController;
 use App\Http\Controllers\DetailProduksiController;
 use App\Http\Controllers\ProduksiController;
+use App\Http\Controllers\ProductController;
 
 //controller admin
 use App\Http\Controllers\AdminUserController;
@@ -108,9 +109,12 @@ Route::get('/detail/{id}/detail',[DetailProduksiController::class,'detail'])->mi
 Route::get('/detail/{id}/edit',[DetailProduksiController::class,'edit'])->middleware('petugas');
 Route::post('/detail/{id}/store',[DetailProduksiController::class,'update'])->middleware('petugas');
 
-
+//Production
 Route::get('/production',[ProduksiController::class,'index'])->middleware('petugas');
 
+
+//Produk
+Route::get('/product',[ProductController::class,'index'])->middleware('petugas');
 
 //Dashboard Khusus Admin
 

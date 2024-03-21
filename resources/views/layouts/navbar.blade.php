@@ -63,6 +63,7 @@
                         <ul class="submenu-item">
                             <li class="nav-item"><a class="nav-link" href="/production">Production</a></li>
                             <li class="nav-item"><a class="nav-link" href="/detail">Detail Production</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/product">Product</a></li>
                         </ul>
                     </div>
                 </li>

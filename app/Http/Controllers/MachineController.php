@@ -96,7 +96,7 @@ class MachineController extends Controller
 
         $total_biaya = $deprisiasi + $perawatan + $bunga + $ruang + $biaya_listrik + $request->biaya_operator + $biaya_lain;
         // $pembulatan_biaya = round($total_biaya);
-        $pembulatan_biaya = ceil($total_biaya / 10000) * 10000;
+        $pembulatan_biaya = ceil($total_biaya / 5000) * 5000;
         // $pembulatan_biaya = $mesin->hitungPembulatanBiaya($total_biaya);
 
         Mesin::create([
@@ -184,7 +184,7 @@ class MachineController extends Controller
 
         $total_biaya = $deprisiasi + $perawatan + $bunga + $ruang + $biaya_listrik + $request->biaya_operator + $biaya_lain;
         // $pembulatan_biaya = round($total_biaya);
-        $pembulatan_biaya = ceil($total_biaya / 10000) * 10000;
+        $pembulatan_biaya = ceil($total_biaya / 5000) * 5000;
 
         $mesin = Mesin::find($id);
         $mesin->update([

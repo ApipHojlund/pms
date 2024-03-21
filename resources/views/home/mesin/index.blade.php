@@ -1,7 +1,7 @@
 @extends('layout.master')
 @section('title', 'mesin')
 @section('konten')
-    <div class="content-wrapper">
+    <div class="content-wrapper mt-3">
         <div class="row">
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
@@ -21,7 +21,7 @@
                                             <th scope="col">Nama</th>
                                             <th scope="col">Jenis Mesin</th>
                                             <th scope="col">Harga Asli</th>
-                                            <th scope="col">Harga Buku</th>
+                                            {{-- <th scope="col">Harga Buku</th> --}}
                                             <th scope="col">Biaya Mesin Per Jam</th>
                                             <th>Aksi</th>
                                         </tr>
@@ -36,9 +36,9 @@
                                                 <td>{{ $m->id }}</td>
                                                 <td>{{ $m->nama }}</td>
                                                 <td>{{ $m->jenis_mesin }}</td>
-                                                <td>{{ number_format($m->harga_asli, 2, ',', '.') }}</td>
-                                                <td>{{ number_format($m->harga_buku, 2, ',', '.') }}</td>
-                                                <td>{{ number_format($m->pembulatan_biaya, 2, ',', '.') }}</td>
+                                                <td>IDR-{{ number_format($m->harga_asli, 2, ',', '.') }}</td>
+                                                {{-- <td>IDR-{{ number_format($m->harga_buku, 2, ',', '.') }}</td> --}}
+                                                <td>IDR-{{ number_format($m->pembulatan_biaya, 2, ',', '.') }}</td>
                                                 <td>
                                                     @can('admin')
                                                         <a href="/mesin/{{ $m->id }}/edit" class="btn btn-warning">Edit</a>

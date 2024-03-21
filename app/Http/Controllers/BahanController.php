@@ -36,7 +36,7 @@ class BahanController extends Controller
     {
         $jenisId = jenisBahan::find($id);
         $pilih_jenis = JenisBahan::all();
-        $bahan = Bahan::where('id_jenis', $jenisId->id)->get(); // Perbaiki di sini
+        $bahan = Bahan::where('id_jenis','=', $jenisId->id)->paginate(8);
         return view('page.material.select', compact('pilih_jenis', 'bahan'));
     }
 
