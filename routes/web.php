@@ -111,6 +111,7 @@ Route::post('/detail/{id}/store',[DetailProduksiController::class,'update'])->mi
 
 //Production
 Route::get('/production',[ProduksiController::class,'index'])->middleware('petugas');
+Route::get('/production/create',[ProduksiController::class,'create'])->middleware('petugas');
 
 
 //Produk
@@ -183,7 +184,7 @@ Route::get('/order/{id}/view-document', [OrderController::class, 'viewDocument']
 
 //produksi
 Route::get('/produksi',[ProduksiController::class,'utama'])->middleware('admin');
-Route::post('/pesanan/proses',[ProduksiController::class,'store'])->middleware('admin');
+Route::post('/pesanan/proses',[ProduksiController::class,'store'])->middleware('petugas');
 Route::get('/produksi/tambah',[ProduksiController::class,'createAdmin'])->middleware('admin');
 Route::get('/produksi/{id}/hapus',[ProduksiController::class,'hapus'])->middleware('admin');
 Route::post('/produksi/{id}/update',[ProduksiController::class,'update'])->middleware('admin');

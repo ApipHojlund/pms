@@ -8,7 +8,7 @@
                 <div class="card-body">
                  <h4 class="card-tittle">
                     Production Page
-                    {{-- <a href="//create">tambah data +</a> --}}
+                    <a href="/production/create">tambah data +</a>
                  </h4>
                  <div class="table-responsive">
                     <br>
@@ -31,8 +31,11 @@
                                 <td>{{$u->id}}</td>
                                 <td>{{$u->keterangan}}</td>
                                 <td>
-                                    <a href="/production/{{$u->id}}/edit" class="btn btn-warning">Edit</a>
-                                    <button class="btn btn-danger" onclick="Delete('/production/{{$u->id}}/hapus')">Hapus</button>
+                                    <button type="button" class="btn btn-info" onclick="showUpdateModal({{ $u->id }})">
+                                        Update Data
+                                    </button>
+                                    <a href="/production/{{$u->id}}/detail" class="btn btn-primary">Detail</a>
+                                    <button class="btn btn-danger" onclick="Delete('/produksi/{{$u->id}}/hapus')">Hapus</button>
                                 </td>
                             </tr>
                             @endforeach

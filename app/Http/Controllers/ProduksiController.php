@@ -35,9 +35,11 @@ class ProduksiController extends Controller
      */
     public function create()
     {
+        $petugas = User::where('level', '=', 'Petugas')->get();
+        $mesin = Mesin::all();
         $pilih_jenis = JenisBahan::all();
-
-        //
+        $order = Pesanan::where('status', '=', 'dalam antrian')->get();
+        return view('page.produksi.proses', compact('petugas', 'order', 'pilih_jenis', 'mesin'));
     }
 
     /**
@@ -48,6 +50,18 @@ class ProduksiController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'nama_model' => 'required',
+            'id_mesin' => 'required',
+            'petugas' => 'required',
+            'profit' => 'required',
+            'waktu' => 'required|numeric',
+            // 'pemesan' => 'required', // Contoh validasi untuk input select
+            // 'bahan' => 'required' // Contoh validasi untuk input select
+        ],[
+            'nama_model.required' => 'Pilih Salah Satu Model',
+            'id_mesin.required' => 'Pilih Salah Satu Mesin',
+        ]);
         /// Tanggal hari ini
         $today = Carbon::today();
 
@@ -105,7 +119,7 @@ class ProduksiController extends Controller
         // Ubah status pesanan menjadi "dalam proses"
         Pesanan::whereIn('id', $selectedItems)->update(['status' => 'dalam proses']);
 
-        return redirect()->back();
+        return redirect()->back()->with($validatedData);
     }
 
     /**

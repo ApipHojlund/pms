@@ -74,12 +74,16 @@
     <script>
         // Initialize Select2 for the machine selection
         $(document).ready(function() {
-            $('#id_mesin').select2();
+            $('#id_mesin').select2({
+                theme:"classic"
+            });
         });
     </script>
     <script>
         $(document).ready(function() {
-            $('.js-example-basic-multiple').select2();
+            $('.js-example-basic-multiple').select2({
+                theme:"classic"
+            });
         });
     </script>
     <!-- container-scroller -->
