@@ -1,7 +1,7 @@
 @extends('layout.master')
 @section('title','material')
 @section('konten')
-<div class="content-wrapper">
+<div class="content-wrapper mt-3">
     <div class="row">
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">

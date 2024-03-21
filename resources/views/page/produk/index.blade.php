@@ -1,13 +1,13 @@
-@extends('layout.master')
+@extends('layouts.master')
 @section('title', 'Produk')
-@section('konten')
+@section('content')
     <div class="content-wrapper mt-3">
         <div class="row">
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-tittle">
-                            Produk <a href="/pemesanan/request" class="btn btn-primary">Add New Data <i
+                            Produk <a href="/order/request" class="btn btn-primary">Add New Data <i
                                     class="mdi mdi-plus"></i></a>
                         </h4>
                         <div class="table-responsive">

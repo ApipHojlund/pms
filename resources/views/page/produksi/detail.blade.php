@@ -1,13 +1,13 @@
-@extends('layout.master')
+@extends('layouts.master')
 @section('title', 'Produksi')
-@section('konten')
+@section('content')
     <div class="content-wrapper mt-3">
         <div class="row">
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-tittle">
-                            <a href="/produksi" class="btn btn-primary">back</a>
+                            <a href="/production" class="btn btn-primary">back</a>
                         </h4>
 
                         @php

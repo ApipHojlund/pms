@@ -16,5 +16,6 @@ class AllSeeder extends Seeder
         $this->call(User::class);
         $this->call(BahanSeeder::class);
         $this->call(JenisBahanSeeder::class);
+        $this->call(MesinSeeder::class);
     }
 }

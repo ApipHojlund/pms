@@ -13,6 +13,7 @@ use App\Http\Controllers\BahanController;
 use App\Http\Controllers\PesananController;
 use App\Http\Controllers\DetailProduksiController;
 use App\Http\Controllers\ProduksiController;
+use App\Http\Controllers\ProductController;
 
 //controller admin
 use App\Http\Controllers\AdminUserController;
@@ -108,9 +109,13 @@ Route::get('/detail/{id}/detail',[DetailProduksiController::class,'detail'])->mi
 Route::get('/detail/{id}/edit',[DetailProduksiController::class,'edit'])->middleware('petugas');
 Route::post('/detail/{id}/store',[DetailProduksiController::class,'update'])->middleware('petugas');
 
-
+//Production
 Route::get('/production',[ProduksiController::class,'index'])->middleware('petugas');
+Route::get('/production/create',[ProduksiController::class,'create'])->middleware('petugas');
 
+
+//Produk
+Route::get('/product',[ProductController::class,'index'])->middleware('petugas');
 
 //Dashboard Khusus Admin
 
@@ -179,7 +184,7 @@ Route::get('/order/{id}/view-document', [OrderController::class, 'viewDocument']
 
 //produksi
 Route::get('/produksi',[ProduksiController::class,'utama'])->middleware('admin');
-Route::post('/pesanan/proses',[ProduksiController::class,'store'])->middleware('admin');
+Route::post('/pesanan/proses',[ProduksiController::class,'store'])->middleware('petugas');
 Route::get('/produksi/tambah',[ProduksiController::class,'createAdmin'])->middleware('admin');
 Route::get('/produksi/{id}/hapus',[ProduksiController::class,'hapus'])->middleware('admin');
 Route::post('/produksi/{id}/update',[ProduksiController::class,'update'])->middleware('admin');
