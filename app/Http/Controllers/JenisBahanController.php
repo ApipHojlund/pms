@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\JenisBahan;
+use App\Models\Bahan;
 
 class JenisBahanController extends Controller
 {
@@ -100,6 +101,12 @@ class JenisBahanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $jenis = JenisBahan::find($id);
+        // $material = Bahan::where('id_jenis','=',$id)->first();
+        // $material->delete();
+
+        $jenis->delete();
+
+        return redirect()->back();
     }
 }

@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{{ asset('bootstrap/vendors/owl-carousel-2/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('bootstrap/vendors/owl-carousel-2/owl.theme.default.min.css') }}">
     <link rel="stylesheet" href="{{ asset('template/vendors/sweetalert2/sweetalert2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('template/vendors/toastr/toastr.min.css') }}">
     <link rel="stylesheet" href="{{ asset('template/vendors/datatable/dataTables.bootstrap4.min.css') }}">
     {{-- select 2 css + js --}}
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
@@ -99,6 +100,7 @@
     <script src="{{ asset('bootstrap/js/jquery.cookie.js" type="text/javascript') }}"></script>
     {{-- sweet alert --}}
     <script src="{{ asset('template/vendors/sweetalert2/sweetalert2.min.js') }}"></script>
+    <script src="{{ asset('template/vendors/toastr/toastr.min.js') }}"></script>
     {{-- select 2 --}}
     {{-- <script src="{{ asset('template/vendors/select2/select2.min.js') }}"></script> --}}
     <script src="{{ asset('template/vendors/select2/select2.min.js') }}"></script>

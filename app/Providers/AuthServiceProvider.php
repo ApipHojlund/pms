@@ -26,7 +26,7 @@ class AuthServiceProvider extends ServiceProvider
     {
 
         Gate::define('admin', function(User $user){
-            return $user->level = 'Admin';
+            return $user->level == 'Admin';
         });
         Gate::define('petugas', function(User $user){
             return Auth()->User()->level != 'Customer';

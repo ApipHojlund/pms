@@ -21,7 +21,7 @@
                                 <th scope="col" rowspan="2">Id</th>
                                 <th scope="col" rowspan="2">Nama</th>
                                 <th scope="col" colspan="3">ukuran</th>
-                                <th scope="col" rowspan="2">berat</th>
+                                {{-- <th scope="col" rowspan="2">berat</th> --}}
                                 <th scope="col" rowspan="2">harga</th>
                                 <th scope="col" rowspan="2">jenis</th>
                                 @can('admin')
@@ -46,13 +46,13 @@
                                 <td>{{$bahan->ukuran_x}}</td>
                                 <td>{{$bahan->ukuran_y}}</td>
                                 <td>{{$bahan->ukuran_z}}</td>
-                                <td>{{$bahan->berat}}</td>
+                                {{-- <td>{{$bahan->berat}}</td> --}}
                                 <td>IDR-{{number_format($bahan->harga_bahan,2,',','.')}}</td>
                                 <td>{{$bahan->JenisBahan->tipe}}</td>
                                 @can('admin')
                                 <td>
                                     <a href="/material/{{$bahan->id}}/edit" class="btn btn-warning">Edit</a>
-                                    <button class="btn btn-danger" onclick="Delete('/bahan/{{$bahan->id}}/hapus')">Hapus</button>
+                                    <button class="btn btn-danger" onclick="Delete('/material/{{$bahan->id}}/hapus')">Hapus</button>
                                 </td>
                                 @endcan
                             </tr>

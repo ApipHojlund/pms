@@ -31,7 +31,13 @@
                 <h1>Login</h1><br>
                 <span>Use your username password</span>
                 <input type="username" name="username" placeholder="Username">
+                @error('username')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
                 <input type="password" name="password" placeholder="Password">
+                @error('password')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
                 <button class="btn mt-3">Login</button>
                 <a href="/register" class="hidden">Buat Akun</a>
                 <a href="/" class="hidden" id="login">Back</a>

@@ -14,10 +14,17 @@ class LoginController extends Controller
     }
     public function login(Request $request)
     {
+        $validated = $request->validate([
+            'username' => 'required',
+            'password' => 'required'
+        ],[
+            'username.required' => 'username wajib diisi',
+            'password.required' => 'password wajib diisi',
+        ]);
         if (Auth::attempt($request->only('username', 'password'))) {;
             return redirect('/lanjut')->with('message', 'Berhasil Login');
         } else {
-            return redirect('/login')->with('error', 'Username atau Password Salah')
+            return redirect()->back()->with('error', 'Username atau Password Salah')
             ->with('message', 'Username atau Password Salah');
         };
     }
@@ -53,7 +60,7 @@ class LoginController extends Controller
             'foto' => $foto
         ]);
 
-        return redirect('/login')->with('message', 'Data Berhasil Ditambahkan')->with($validated);
+        return redirect()->back()->with('message', 'Data Berhasil Ditambahkan')->with($validated);
     }
 
     public function logout()

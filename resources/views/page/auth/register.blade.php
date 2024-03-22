@@ -7,6 +7,7 @@
     <link rel="icon" type="image/png" href="{{ asset('assets/img/i.png') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('template/css/style1.css') }}">
+    <script src="{{ asset('template/vendors/toastr/toastr.min.css') }}"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
         integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -95,6 +96,7 @@
 
     <script src="{{ asset('assets/js/plugins/script.js') }}"></script>
     <script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('template/vendors/toastr/toastr.min.js') }}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
         integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
