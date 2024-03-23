@@ -200,6 +200,11 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), [
             'old_password' => 'required',
             'new_password' => 'required',
+            'new_password_confirmation' => 'confirmed'
+        ],[
+            'old_password.required' => 'password lama tidak boleh kosong',
+            'new_password.required' => 'password baru tidak boleh kosong',
+            'new_password_confirmation.confirmed' => 'password baru tidak valid',
         ]);
 
         if ($validator->fails()) {

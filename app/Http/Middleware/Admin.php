@@ -19,7 +19,7 @@ class Admin
         if(Auth()->guest()){
             redirect('/login');
         }
-        if(Auth()->User()->level =! 'admin'){
+        if(Auth()->User()->level != 'Admin'){
             abort('403');
         }
         return $next($request);

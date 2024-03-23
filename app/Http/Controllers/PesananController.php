@@ -19,24 +19,27 @@ class PesananController extends Controller
      */
     public function index()
     {
-        $idp = Auth()->User()->id;
-        if (Auth()->User()->level == 'Customer') {
-            $pilih_jenis = JenisBahan::all();
-            $order = Pesanan::where('id_pemesan', '=', $idp)
-                ->get();
-            return view('page.pemesanan.index', compact('order', 'pilih_jenis'));
-        } elseif (Auth()->User()->level == 'Petugas') {
-            $pilih_jenis = JenisBahan::all();
-            $order = DetailProduksi::where('petugas', '=', $idp)
-                ->get();
-            return view('page.pemesanan.index', compact('order', 'pilih_jenis'));
-        } else {
+        // $idp = Auth()->User()->id;
+        // if (Auth()->User()->level == 'Customer') {
+        //     $pilih_jenis = JenisBahan::all();
+        //     $order = Pesanan::where('id_pemesan', '=', $idp)
+        //         ->get();
+        //     return view('page.pemesanan.index', compact('order', 'pilih_jenis'));
+        // } elseif (Auth()->User()->level == 'Petugas') {
+        //     $pilih_jenis = JenisBahan::all();
+        //     $order = DetailProduksi::where('petugas', '=', $idp)
+        //         ->get();
+        //     return view('page.pemesanan.index', compact('order', 'pilih_jenis'));
+        // } else {
+        //     $pilih_jenis = JenisBahan::all();
+        //     $order = Pesanan::all();
+        //     return view('page.pemesanan.index', compact('order', 'pilih_jenis'));
+        // }
+
             $pilih_jenis = JenisBahan::all();
             $order = Pesanan::all();
             return view('page.pemesanan.index', compact('order', 'pilih_jenis'));
-        }
 
-        //
     }
 
     /**
@@ -78,6 +81,7 @@ class PesananController extends Controller
             'status' => $queu,
             'model' => $foto,
             'note' => $request->note,
+            'berat' => $request->berat,
             'jumlah' => $request->jumlah,
             'jumlah_produksi' => $request->jumlah_produksi,
             'id_pemesan' => $request->id_pemesan,

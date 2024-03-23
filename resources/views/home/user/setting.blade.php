@@ -48,7 +48,7 @@
                             </div>
                         </div>
                         <a class="btn col-lg-5 mt-2 btn-info" href="/user/{{ Auth()->User()->id }}/setting">Edit Data</a>
-                        <a class="btn col-lg-5 mt-2 btn-primary" href="/user/{{ Auth()->User()->id }}/setting">Change
+                        <a class="btn col-lg-5 mt-2 btn-primary" href="/user/change-password/{{ Auth()->User()->id }}">Change
                             Password</a>
                     </div>
                 </div>

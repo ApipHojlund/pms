@@ -7,6 +7,7 @@ use App\Models\Pesanan;
 use App\Models\JenisBahan;
 use App\Models\User;
 use App\Models\Mesin;
+// use App\Models\Pesanan;
 use App\Models\DetailProduksi;
 use Auth;
 
@@ -34,6 +35,7 @@ class DashboardController extends Controller
         $jumlah_customer = User::where('level','=','Customer')->get()->count();
         $jumlah_model = DetailProduksi::where('status','=','Selesai')->get()->count();
         $jumlah_mesin = Mesin::count();
+        $count_order = Pesanan::count();
         $jumlah_diproses = Pesanan::where('id_pemesan','=',$idu)->get()
                                     ->count();
         $jumlah_diajukan = Pesanan::where('id_pemesan','=',$idu)
@@ -43,7 +45,7 @@ class DashboardController extends Controller
                                     ->where('status','=','selesai')->get()
                                     ->count();
         $pilih_jenis = JenisBahan::all();
-        return view('page.dashboard',compact('jumlah_model','jumlah_mesin','pilih_jenis','jumlah_diajukan','jumlah_diproses','jumlah_selesai','jumlah_customer'));
+        return view('page.dashboard',compact('count_order','jumlah_model','jumlah_mesin','pilih_jenis','jumlah_diajukan','jumlah_diproses','jumlah_selesai','jumlah_customer'));
     }
 
     public function admin()

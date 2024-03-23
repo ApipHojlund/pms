@@ -41,12 +41,12 @@
 							<div class="card">
 								<div class="card-body pb-0">
 									<div class="d-flex align-items-center justify-content-between">
-										<h2 class="text-info font-weight-bold">{{ $jumlah_mesin }}</h2>
+										<h2 class="text-info font-weight-bold">{{ $count_order }}</h2>
 										<i class="mdi mdi-file-document-outline mdi-18px text-dark"></i>
 									</div>
 								</div>
 								<canvas id="invoices"></canvas>
-								<div class="line-chart-row-title">Machine Count</div>
+								<div class="line-chart-row-title">Incoming Order Count</div>
 							</div>
 						</div>
 						<div class="col-lg-3 grid-margin stretch-card">
