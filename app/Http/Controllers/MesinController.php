@@ -118,7 +118,7 @@ class MesinController extends Controller
             'pembulatan_biaya' => $pembulatan_biaya,
         ]);
 
-        return redirect('/machine')->with($validated);
+        return redirect('/machine')->with('message','data berhasil ditambah!');
 
     }
 
@@ -206,7 +206,7 @@ class MesinController extends Controller
             'pembulatan_biaya' => $pembulatan_biaya,
         ]);
 
-        return redirect('machine')->with($validated);
+        return redirect('machine')->with('update','data berhasil diubah!');
     }
 
     /**
@@ -219,6 +219,6 @@ class MesinController extends Controller
     {
         $mesin = Mesin::find($id);
         $mesin->delete();
-        return redirect('machine');
+        return redirect()->back()->with('delete','data berhasil dihapus!');
     }
 }

@@ -56,7 +56,7 @@ class MaterialController extends Controller
             'ukuran_z' => $request->ukuran_z,
             'id_jenis' => $request->id_jenis,
         ]);
-        return redirect('/bahan')->with($validated);
+        return redirect('/bahan')->with('message','data berhasil ditambah!');
     }
 
     /**
@@ -118,7 +118,7 @@ class MaterialController extends Controller
             'ukuran_z' => $request->ukuran_z,
             'id_jenis' => $request->id_jenis,
         ]);
-        return redirect('/bahan')->with($validated);
+        return redirect('/bahan')->with('update','data berhasil diubah!');
     }
 
     /**

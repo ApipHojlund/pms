@@ -21,7 +21,14 @@
     <link rel="stylesheet" href="{{ asset('bootstrap/vendors/owl-carousel-2/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('bootstrap/vendors/owl-carousel-2/owl.theme.default.min.css') }}">
     <link rel="stylesheet" href="{{ asset('template/vendors/sweetalert2/sweetalert2.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('template/vendors/toastr/toastr.min.css') }}">
+    {{-- CSS + JS TOASTER --}}
+    {{-- <link rel="stylesheet" href="{{ asset('template/vendors/toastr/toastr.min.css') }}"> --}}
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"> --}}
+    {{-- <script src="{{ asset('template/vendors/toastr/toastr.min.js') }}"></script> --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+        integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {{-- End --}}
     <link rel="stylesheet" href="{{ asset('template/vendors/datatable/dataTables.bootstrap4.min.css') }}">
     {{-- select 2 css + js --}}
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
@@ -53,6 +60,87 @@
             $('#example').dataTable();
         })
     </script>
+
+    {{-- INI SCRIPT BUAT TOASTR --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-u/7PHwsIx5zq6FwYmxqfM5dzMtHSRiFT8iFJbKjLWhe6b2zgxgmtDfHfq3oiM6w+L0u38VqH9DJxpr1fK1/OQg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- CDN toastr.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+        integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    {{-- <script>
+        toastr.options = {
+            "closeButton": true,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
+    </script> --}}
+
+    @if (Session::has('message'))
+        <script>
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            };
+            $(document).ready(function() {
+                toastr.success("{{ Session::get('message') }}");
+            });
+        </script>
+    @endif
+    @if (Session::has('update'))
+        <script>
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            };
+            $(document).ready(function() {
+                toastr.info("{{ Session::get('update') }}");
+            });
+        </script>
+    @endif
+    @if (Session::has('delete'))
+        <script>
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            };
+            $(document).ready(function() {
+                toastr.warning("{{ Session::get('delete') }}");
+            });
+        </script>
+    @endif
     {{-- end --}}
     {{-- sweet alert --}}
     <script>
@@ -76,14 +164,14 @@
         // Initialize Select2 for the machine selection
         $(document).ready(function() {
             $('#id_mesin').select2({
-                theme:"classic"
+                theme: "classic"
             });
         });
     </script>
     <script>
         $(document).ready(function() {
             $('.js-example-basic-multiple').select2({
-                theme:"classic"
+                theme: "classic"
             });
         });
     </script>
@@ -100,7 +188,7 @@
     <script src="{{ asset('bootstrap/js/jquery.cookie.js" type="text/javascript') }}"></script>
     {{-- sweet alert --}}
     <script src="{{ asset('template/vendors/sweetalert2/sweetalert2.min.js') }}"></script>
-    <script src="{{ asset('template/vendors/toastr/toastr.min.js') }}"></script>
+
     {{-- select 2 --}}
     {{-- <script src="{{ asset('template/vendors/select2/select2.min.js') }}"></script> --}}
     <script src="{{ asset('template/vendors/select2/select2.min.js') }}"></script>
@@ -125,6 +213,6 @@
     <!-- End custom js for this page -->
     {{-- DataTable --}}
     <script src="https://kit.fontawesome.com/your_fontawesome_kit_code.js" crossorigin="anonymous"></script>
-</body>
 
-</html>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> --}}
+    "anonymous"></script>

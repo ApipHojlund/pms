@@ -41,15 +41,15 @@
                         <div class="mb-3 form-group-row">
                             <label for="" class="form-label">Ukuran</label>
                             <div class="input-group mb-3">
-                                <input type="text" value="{{ $bahan->ukuran_x }}" name="ukuran_x" class="form-control " placeholder="Ukuran X" aria-label="Ukuran X">
+                                <input type="number" value="{{ $bahan->ukuran_x }}" name="ukuran_x" class="form-control " placeholder="Ukuran X" aria-label="Ukuran X">
                             @error('ukuran_x')
                                 <div class="alert alert-danger">{{$message}}</div>
                             @enderror
-                                <input type="text" value="{{ $bahan->ukuran_y }}" name="ukuran_y" class="form-control " placeholder="Ukuran Y" aria-label="Ukuran Y">
+                                <input type="number" value="{{ $bahan->ukuran_y }}" name="ukuran_y" class="form-control " placeholder="Ukuran Y" aria-label="Ukuran Y">
                             @error('ukuran_y')
                                 <div class="alert alert-danger">{{$message}}</div>
                             @enderror
-                                <input type="text" value="{{ $bahan->ukuran_z }}" name="ukuran_z" class="form-control " placeholder="Ukuran Z" aria-label="Ukuran Z">
+                                <input type="number" value="{{ $bahan->ukuran_z }}" name="ukuran_z" class="form-control " placeholder="Ukuran Z" aria-label="Ukuran Z">
                             @error('ukuran_z')
                                 <div class="alert alert-danger">{{$message}}</div>
                             @enderror

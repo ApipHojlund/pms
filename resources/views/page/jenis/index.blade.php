@@ -133,14 +133,23 @@
     </div>
     </div>
     <script>
-        // Fungsi untuk menampilkan modal tambah
-        function showTambahModal() {
-            $('#tambahModal').modal('show');
+        function showUpdateModal(id) {
+            // Mengatur nilai input pada modal sesuai dengan data yang ingin diperbarui
+            var tipe = document.getElementById('tipe');
+            tipe.value = $('#jenis_bahan_' + id).text();
+
+            // Mengatur action form pada modal sesuai dengan ID yang dipilih
+            var form = document.getElementById('updateForm');
+            form.action = "/jenis_bahan/" + id + "/update";
+
+            // Menampilkan modal
+            $('#updateModal').modal('show');
         }
 
-        // Fungsi untuk menampilkan modal update
-        function showUpdateModal() {
-            $('#updateModal').modal('show');
+        function submitUpdateForm() {
+            // Mengirimkan form untuk disubmit
+            var form = document.getElementById('updateForm');
+            form.submit();
         }
     </script>
 @endsection

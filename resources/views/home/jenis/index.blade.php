@@ -73,41 +73,6 @@
                                         <button type="button" class="btn btn-info" onclick="showUpdateModal({{ $j->id }})">
                                             Update Data
                                         </button>
-                                        {{-- <button type="button" class="btn btn-info" onclick="showUpdateModal()">
-                                            Update Data
-                                        </button> --}}
-                                        <!-- Modal Update -->
-                                        {{-- <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Update Data</h5>
-                                                        <button type="button" class="btn btn-primary btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form action="/jenis-bahan/{{$j->id}}/update" method="post">
-                                                        @csrf
-                                                        <div class="mb-3">
-                                                            <label for="" class="form-label ">Tipe</label>
-                                                            <input value="{{$j->tipe}}"
-                                                                type="text"
-                                                                class="form-control "
-                                                                name="tipe"
-                                                                id=""
-                                                                aria-describedby="helpId"
-                                                                placeholder="TIPE"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                            <button type="SUBMIT" class="btn btn-primary">Submit</button>
-                                                        </div>
-                                                    </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div> --}}
                                         <button class="btn btn-danger" onclick="Delete('/jenis_bahan/{{$j->id}}/hapus')">Hapus</button>
                                     </td>
                                     @endcan

@@ -44,7 +44,7 @@ class JenisController extends Controller
         JenisBahan::create([
             'tipe' => $request->tipe,
         ]);
-        return redirect('/jenis_bahan')->with($validated);
+        return redirect('/jenis_bahan')->with('message','data behasil ditambah!');
     }
 
     /**
@@ -85,7 +85,7 @@ class JenisController extends Controller
         $jenis->update([
             'tipe' => $request->tipe,
         ]);
-        return redirect('/jenis_bahan')->with($validated);
+        return redirect('/jenis_bahan')->with('update','data berhasil diubah!');
     }
 
     /**

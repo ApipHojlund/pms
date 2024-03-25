@@ -46,7 +46,7 @@ class JenisBahanController extends Controller
         JenisBahan::create([
             'tipe' => $request->tipe,
         ]);
-        return redirect('/material-type')->with($validated);
+        return redirect('/material-type')->with('message','Data berhasil ditambah!');
     }
 
     /**
@@ -90,7 +90,7 @@ class JenisBahanController extends Controller
         $jenis->update([
             'tipe' => $request->tipe,
         ]);
-        return redirect('/material-type')->with($validated);
+        return redirect('/material-type')->with('update','data berhasil diubah!');
     }
 
     /**
@@ -107,6 +107,6 @@ class JenisBahanController extends Controller
 
         $jenis->delete();
 
-        return redirect()->back();
+        return redirect()->back()->with('delete','data berhasil dihapus!');
     }
 }

@@ -50,7 +50,7 @@
                                 @can('admin')
                                 <td>
                                     <a href="/bahan/{{$bahan->id}}/edit" class="btn btn-warning">Edit</a>
-                                    <button class="btn btn-danger" onclick="Delete('/bahan/{{$bahan->id}}/hapus')">Hapus</button>
+                                    <button class="btn btn-danger" onclick="Delete('/material/{{$bahan->id}}/hapus')">Hapus</button>
                                 </td>
                                 @endcan
                             </tr>

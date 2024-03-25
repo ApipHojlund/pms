@@ -64,7 +64,7 @@ class BahanController extends Controller
             'ukuran_z' => $request->ukuran_z,
             'id_jenis' => $request->id_jenis,
         ]);
-        return redirect('/material')->with($validated);
+        return redirect('/material')->with('message','Data Berhasil Ditambah!');
     }
 
     /**
@@ -115,7 +115,7 @@ class BahanController extends Controller
             'ukuran' => $request->ukuran,
             'id_jenis' => $request->id_jenis,
         ]);
-        return redirect('/material')->with($validated);
+        return redirect('/material')->with('');
     }
 
     /**
@@ -128,6 +128,6 @@ class BahanController extends Controller
     {
         $bahan = Bahan::find($id);
         $bahan->delete();
-        return redirect('/material');
+        return redirect()->back()->with('delete','data berhasil dihapus!');
     }
 }
