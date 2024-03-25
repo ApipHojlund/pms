@@ -228,7 +228,7 @@ class ProduksiController extends Controller
     {
         $pilih_jenis = JenisBahan::all();
         $produksi = Produksi::all();
-        return view('home.produksi.index', compact('pilih_jenis', 'produksi'));
+        return view('home.produksi.choose', compact('pilih_jenis', 'produksi'));
     }
 
     public function createAdmin()
@@ -242,7 +242,7 @@ class ProduksiController extends Controller
 
     public function cetak($id)
     {
-        
+
         return view('home.produksi.cetak');
     }
 }

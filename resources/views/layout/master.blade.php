@@ -62,33 +62,18 @@
     </script>
 
     {{-- INI SCRIPT dan CSS BUAT TOASTR --}}
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-        integrity="sha512-u/7PHwsIx5zq6FwYmxqfM5dzMtHSRiFT8iFJbKjLWhe6b2zgxgmtDfHfq3oiM6w+L0u38VqH9DJxpr1fK1/OQg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
     {{-- CDN CSS toastr --}}
-    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
-        integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
-    <!-- CDN toastr.js -->
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
-        integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-
+    <!-- CDN toastr.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
 
     <script>
         toastr.options = {
             "closeButton": true,
             "progressBar": true,
-            "positionClass": "toast-bottom-right", // Posisi toastr diubah ke kanan bawah
-            "showDuration": "300",
-            "hideDuration": "1000",
-            "extendedTimeOut": "1000",
-            "showEasing": "swing",
-            "hideEasing": "linear",
-            "showMethod": "fadeIn",
-            "hideMethod": "fadeOut"
+            "positionClass": "toast-bottom-center", // Posisi toastr diubah ke kanan bawah
+            "timeOut" : 10000
         };
     </script>
 
@@ -110,77 +95,6 @@
         </script>
     @endif
 
-    {{-- @if (Session::has('message'))
-        <script>
-            toastr.options = {
-                "closeButton": true,
-                "progressBar": true,
-                "positionClass": "toast-top-right",
-                "showDuration": "300",
-                "hideDuration": "1000",
-                "extendedTimeOut": "1000",
-                "showEasing": "swing",
-                "hideEasing": "linear",
-                "showMethod": "fadeIn",
-                "hideMethod": "fadeOut"
-            };
-            $(document).ready(function() {
-                toastr.success("{{ Session::get('message') }}");
-            });
-        </script>
-    @endif
-    @if (Session::has('update'))
-        <script>
-            toastr.options = {
-                "closeButton": true,
-                "progressBar": true,
-                "positionClass": "toast-top-right",
-                "showDuration": "300",
-                "hideDuration": "1000",
-                "extendedTimeOut": "1000",
-                "showEasing": "swing",
-                "hideEasing": "linear",
-                "showMethod": "fadeIn",
-                "hideMethod": "fadeOut"
-            };
-            $(document).ready(function() {
-                toastr.info("{{ Session::get('update') }}");
-            });
-        </script>
-    @endif
-    @if (Session::has('delete'))
-        <script>
-            toastr.options = {
-                "closeButton": true,
-                "progressBar": true,
-                "positionClass": "toast-top-right",
-                "showDuration": "300",
-                "hideDuration": "1000",
-                "extendedTimeOut": "1000",
-                "showEasing": "swing",
-                "hideEasing": "linear",
-                "showMethod": "fadeIn",
-                "hideMethod": "fadeOut"
-            };
-            $(document).ready(function() {
-                toastr.warning("{{ Session::get('delete') }}");
-            });
-        </script>
-    @endif --}}
-    {{-- <script>
-        toastr.options = {
-            "closeButton": true,
-            "progressBar": true,
-            "positionClass": "toast-top-right",
-            "showDuration": "300",
-            "hideDuration": "1000",
-            "extendedTimeOut": "1000",
-            "showEasing": "swing",
-            "hideEasing": "linear",
-            "showMethod": "fadeIn",
-            "hideMethod": "fadeOut"
-        };
-    </script> --}}
     {{-- end --}}
     {{-- sweet alert --}}
     <script>

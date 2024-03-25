@@ -58,7 +58,7 @@
                         <div class="mb-3">
                             <label for="" class="form-label">Jenis Material</label>
                             <select class="form-select form-select-md" name="id_jenis" id="" required>
-                                    <option disabled selected value="{{$bahan->id_jenis}}">-{{$bahan->JenisBahan->tipe}}-</option>
+                                    <option selected value="{{$bahan->id_jenis}}">-{{$bahan->JenisBahan->tipe}}-</option>
                                 @foreach ($jeniss as $jeniss)
                                     <option value="{{$jeniss->id}}">{{$jeniss->tipe}}</option>
                                 @endforeach
