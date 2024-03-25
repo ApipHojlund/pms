@@ -51,15 +51,15 @@ class ProduksiController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nama_model' => 'required',
+            // 'nama_model' => 'required',
             'id_mesin' => 'required',
             'petugas' => 'required',
             'profit' => 'required',
             'waktu' => 'required|numeric',
             // 'pemesan' => 'required', // Contoh validasi untuk input select
             // 'bahan' => 'required' // Contoh validasi untuk input select
-        ],[
-            'nama_model.required' => 'Pilih Salah Satu Model',
+        ], [
+            // 'nama_model.required' => 'Pilih Salah Satu Model',
             'id_mesin.required' => 'Pilih Salah Satu Mesin',
         ]);
         /// Tanggal hari ini
@@ -79,47 +79,59 @@ class ProduksiController extends Controller
             // Temukan pesanan berdasarkan ID
             $pesanan = Pesanan::findOrFail($itemId);
 
-            // Iterasi setiap mesin yang dipilih
-            foreach ($selectedMachines as $mesinId) {
-                // Temukan mesin berdasarkan ID
-                $mesin = Mesin::findOrFail($mesinId);
+            if ($selectedItems == null) {
+                $request->validate(
+                    [
+                        'nama_model' => 'required',
+                    ],
+                    [
+                        'nama_model.required' => 'Pilih Salah Satu Model'
+                    ]
+                );
+            } else {
 
-                // Hitung harga jual
-                $biaya = $mesin->pembulatan_biaya * $request->waktu;
-                $totalBiaya = $biaya + (($request->profit / 100) * $biaya);
-                $hargaJual = ceil($totalBiaya / 5000) * 5000;
+                // Iterasi setiap mesin yang dipilih
+                foreach ($selectedMachines as $mesinId) {
+                    // Temukan mesin berdasarkan ID
+                    $mesin = Mesin::findOrFail($mesinId);
 
-                // Tambahkan detail produksi
-                $detailProduksi = DetailProduksi::create([
-                    'tanggal' => $today,
-                    'note' => $pesanan->note,
-                    'id_pemesan' => $pesanan->id_pemesan,
-                    'jumlah_produksi' => $pesanan->jumlah,
-                    'status' => 'dalam proses',
-                    'waktu' => $request->waktu,
-                    'petugas' => $request->petugas,
-                    'id_produksi' => $produksi->id,
-                    'kode_pesanan' => $pesanan->id,
-                ]);
+                    // Hitung harga jual
+                    $biaya = $mesin->pembulatan_biaya * $request->waktu;
+                    $totalBiaya = $biaya + (($request->profit / 100) * $biaya);
+                    $hargaJual = ceil($totalBiaya / 5000) * 5000;
 
-                // Tambahkan produk baru
-                Produk::create([
-                    'nama_model' => $pesanan->nama_model,
-                    'model' => $pesanan->model,
-                    'id_bahan' => $pesanan->id_bahan,
-                    'id_mesin' => $mesinId,
-                    'berat' => $pesanan->berat,
-                    'profit' => $request->profit,
-                    'harga_jual' => $hargaJual,
-                    'id_detail' => $detailProduksi->id,
-                ]);
+                    // Tambahkan detail produksi
+                    $detailProduksi = DetailProduksi::create([
+                        'tanggal' => $today,
+                        'note' => $pesanan->note,
+                        'id_pemesan' => $pesanan->id_pemesan,
+                        'jumlah_produksi' => $pesanan->jumlah,
+                        'status' => 'dalam proses',
+                        'waktu' => $request->waktu,
+                        'petugas' => $request->petugas,
+                        'id_produksi' => $produksi->id,
+                        'kode_pesanan' => $pesanan->id,
+                    ]);
+
+                    // Tambahkan produk baru
+                    Produk::create([
+                        'nama_model' => $pesanan->nama_model,
+                        'model' => $pesanan->model,
+                        'id_bahan' => $pesanan->id_bahan,
+                        'id_mesin' => $mesinId,
+                        'berat' => $pesanan->berat,
+                        'profit' => $request->profit,
+                        'harga_jual' => $hargaJual,
+                        'id_detail' => $detailProduksi->id,
+                    ]);
+                }
             }
         }
 
         // Ubah status pesanan menjadi "dalam proses"
         Pesanan::whereIn('id', $selectedItems)->update(['status' => 'dalam proses']);
 
-        return redirect()->back()->with($validatedData);
+        return redirect()->back()->with('message', 'Data berhasil ditambah!');
     }
 
     /**
@@ -182,9 +194,35 @@ class ProduksiController extends Controller
     public function hapus($id)
     {
         $item = Produksi::find($id);
+        $idp = $item->id;
+        // Cari detail produksi yang memiliki id_produksi yang sama dengan $idp
+        $detail = DetailProduksi::where('id_produksi', '=', $idp)->get();
+
+        // Loop melalui setiap detail produksi
+        foreach ($detail as $det) {
+            // Periksa apakah ada produk dengan id_detail yang sesuai
+            $produk = Produk::where('id_detail', '=', $det->id)->first();
+            if ($produk) {
+                // Hapus produk jika ditemukan
+                $produk->delete();
+            }
+            // Ganti status pesanan menjadi 'berhenti'
+            $pesanan = Pesanan::find($det->kode_pesanan);
+            if ($pesanan) {
+                $pesanan->update([
+                    'status' => 'berhenti'
+                ]);
+            }
+            // Hapus detail produksi
+            $det->delete();
+        }
+
+        // Hapus produksi
         $item->delete();
-        return redirect('/produksi');
+
+        return redirect()->back()->with('delete', 'Data Berhasil Dihapus');
     }
+
 
     public function utama()
     {
@@ -200,5 +238,11 @@ class ProduksiController extends Controller
         $pilih_jenis = JenisBahan::all();
         $order = Pesanan::where('status', '=', 'dalam antrian')->get();
         return view('home.produksi.proses', compact('petugas', 'order', 'pilih_jenis', 'mesin'));
+    }
+
+    public function cetak($id)
+    {
+        
+        return view('home.produksi.cetak');
     }
 }

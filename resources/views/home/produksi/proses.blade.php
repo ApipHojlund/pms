@@ -125,7 +125,7 @@
                             <div class="col-lg-12">
                                 <div class="mb-3">
                                     <label for="" class="form-label">Machine</label>
-                                    <select required multiple class="js-example-basic-multiple form-control" name="id_mesin[]"
+                                    <select multiple class="js-example-basic-multiple form-control" name="id_mesin[]"
                                         id="id_mesin" multiple>
                                         @foreach ($mesin as $item)
                                             <option class="" value="{{ $item->id }}">{{ $item->nama }}</option>
@@ -135,21 +135,21 @@
 
                                 <div class="mb-3">
                                     <label for="" class="form-label">Petugas</label>
-                                    <select required class="form-select form-select " name="petugas"
+                                    <select class="form-select form-select " name="petugas"
                                         id="">
                                         @foreach ($petugas as $pet)
-                                            <option value="{{ $pet->nama }}">{{ $pet->nama }}</option>
+                                            <option value="{{ $pet->id }}">{{ $pet->nama }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="mb-3">
                                     <label for="" class="form-label">profit</label>
-                                    <input required type="number" class="form-control " name="profit"
+                                    <input type="number" class="form-control " name="profit" value="{{old('profit')}}"
                                         id="" aria-describedby="helpId" placeholder="" />
                                 </div>
                                 <div class="mb-3">
                                     <label for="" class="form-label">Processing Time</label>
-                                    <input required type="number" class="form-control " name="waktu"
+                                    <input type="number" class="form-control " name="waktu" value="{{old('waktu')}}"
                                         id="" aria-describedby="helpId" placeholder="" />
                                 </div>
                             </div>

@@ -189,6 +189,7 @@ Route::get('/produksi/tambah',[ProduksiController::class,'createAdmin'])->middle
 Route::get('/produksi/{id}/hapus',[ProduksiController::class,'hapus'])->middleware('admin');
 Route::post('/produksi/{id}/update',[ProduksiController::class,'update'])->middleware('admin');
 Route::get('/produksi/{id}/detail',[ProduksiController::class,'show'])->middleware('admin');
+Route::get('/produksi/{id}/cetak',[ProduksiController::class,'cetak'])->middleware('admin');
 
 
 //Mesin

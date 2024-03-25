@@ -7,8 +7,8 @@
             <div class="card">
                 <div class="card-body">
                  <h4 class="card-tittle">
-                    Production Page
-                    <a href="/produksi/tambah">tambah data +</a>
+                    Production Page <br>
+                    <a class="btn btn-primary mt-3" href="/produksi/tambah">tambah data +</a>
                  </h4>
                  <div class="table-responsive">
                     <br>

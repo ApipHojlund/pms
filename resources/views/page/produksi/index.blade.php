@@ -7,8 +7,8 @@
             <div class="card">
                 <div class="card-body">
                  <h4 class="card-tittle">
-                    Production Page
-                    <a href="/production/create">tambah data +</a>
+                    Production Page <br>
+                    <a class="btn btn-primary" href="/production/create">tambah data +</a>
                  </h4>
                  <div class="table-responsive">
                     <br>
@@ -35,6 +35,7 @@
                                         Update Data
                                     </button>
                                     <a href="/production/{{$u->id}}/detail" class="btn btn-primary">Detail</a>
+                                    <a href="/production/{{$u->id}}/cetak" class="btn btn-primary">cetak <i class="mdi mdi-printer"></i></a>
                                     <button class="btn btn-danger" onclick="Delete('/produksi/{{$u->id}}/hapus')">Hapus</button>
                                 </td>
                             </tr>

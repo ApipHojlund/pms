@@ -8,6 +8,7 @@
                     <div class="card-body">
                         <h4 class="card-tittle">
                             <a href="/produksi" class="btn btn-primary">back</a>
+                            <a href="/produksi/{{$produksi->id}}/cetak" class="btn btn-primary">Cetak</a>
                         </h4>
 
                         @php
