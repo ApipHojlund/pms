@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DetailProduksi;
 use Illuminate\Http\Request;
 use App\Models\Mesin;
+use App\Models\Produk;
 use App\Models\JenisBahan;
 
 class MachineController extends Controller
@@ -21,7 +23,7 @@ class MachineController extends Controller
     {
         $pilih_jenis = JenisBahan::all();
         $mesin = Mesin::all();
-        return view('home.mesin.index',compact('mesin','pilih_jenis'));
+        return view('home.mesin.index', compact('mesin', 'pilih_jenis'));
         //
     }
 
@@ -41,7 +43,7 @@ class MachineController extends Controller
         $biaya_listrik = ($mesin->daya_mesin * $mesin->biaya_listrik);
         $biaya_lain = 0.1 * $deprisiasi;
 
-        return view('home.mesin.detail',compact('mesin','pilih_jenis','total_jam','nilai_otw','jam_thn','deprisiasi','perawatan','bunga','ruang','biaya_listrik','biaya_lain'));
+        return view('home.mesin.detail', compact('mesin', 'pilih_jenis', 'total_jam', 'nilai_otw', 'jam_thn', 'deprisiasi', 'perawatan', 'bunga', 'ruang', 'biaya_listrik', 'biaya_lain'));
         //
     }
 
@@ -53,7 +55,7 @@ class MachineController extends Controller
     public function create()
     {
         $pilih_jenis = JenisBahan::all();
-        return view('home.mesin.create',compact('pilih_jenis'));
+        return view('home.mesin.create', compact('pilih_jenis'));
         //
     }
 
@@ -82,7 +84,7 @@ class MachineController extends Controller
             'biaya_operator' => 'required|numeric',
         ]);
 
-        $harga_buku = ($request->harga_asli / 2) ;
+        $harga_buku = ($request->harga_asli / 2);
         $nilai_otw = $harga_buku * (pow((1 + ($request->inflansi / 100)), $request->umur));
         $jam_thn = $request->jam_bln * 12;
         $total_jam = $jam_thn * $request->umur;
@@ -117,8 +119,7 @@ class MachineController extends Controller
             'pembulatan_biaya' => $pembulatan_biaya,
         ]);
 
-        return redirect('/mesin')->with('message','data berhasil ditambah!');
-
+        return redirect('/mesin')->with('message', 'data berhasil ditambah!');
     }
 
     /**
@@ -142,7 +143,7 @@ class MachineController extends Controller
     {
         $pilih_jenis = JenisBahan::all();
         $mesin = Mesin::find($id);
-        return view('home.mesin.edit',compact('mesin','pilih_jenis'));
+        return view('home.mesin.edit', compact('mesin', 'pilih_jenis'));
         //
     }
 
@@ -170,7 +171,7 @@ class MachineController extends Controller
             'biaya_operator' => 'required|numeric',
         ]);
 
-        $harga_buku = ($request->harga_asli / 2) ;
+        $harga_buku = ($request->harga_asli / 2);
         $nilai_otw = $harga_buku * (pow((1 + ($request->inflansi / 100)), $request->umur));
         $jam_thn = $request->jam_bln * 12;
         $total_jam = $jam_thn * $request->umur;
@@ -205,7 +206,7 @@ class MachineController extends Controller
             'pembulatan_biaya' => $pembulatan_biaya,
         ]);
 
-        return redirect('/mesin')->with('message','data berhasil diubah');
+        return redirect('/mesin')->with('update', 'data berhasil diubah');
     }
 
     /**
@@ -217,7 +218,25 @@ class MachineController extends Controller
     public function destroy($id)
     {
         $mesin = Mesin::find($id);
+
+        if (!$mesin) {
+            return redirect()->back()->with('error', 'Mesin tidak ditemukan');
+        }
+
+        $produk = Produk::where('id_mesin', $mesin->id)->get();
+
+        foreach ($produk as $item) {
+            $detail = $item->Detail;
+            $detail->update([
+                'status' => 'berhenti',
+            ]);
+            $item->update([
+                'id_mesin' => 404,
+            ]);
+        }
+
         $mesin->delete();
-        return redirect()->back()->with('delete','data berhasil dihapus');
+
+        return redirect()->back()->with('delete', 'Data berhasil dihapus');
     }
 }

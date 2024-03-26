@@ -36,7 +36,7 @@ class ProduksiController extends Controller
     public function create()
     {
         $petugas = User::where('level', '=', 'Petugas')->get();
-        $mesin = Mesin::all();
+        $mesin = Mesin::where('id','!=',404)->get();
         $pilih_jenis = JenisBahan::all();
         $order = Pesanan::where('status', '=', 'dalam antrian')->get();
         return view('page.produksi.proses', compact('petugas', 'order', 'pilih_jenis', 'mesin'));
@@ -234,7 +234,7 @@ class ProduksiController extends Controller
     public function createAdmin()
     {
         $petugas = User::where('level', '=', 'Petugas')->get();
-        $mesin = Mesin::all();
+        $mesin = Mesin::where('id','!=',404)->get();
         $pilih_jenis = JenisBahan::all();
         $order = Pesanan::where('status', '=', 'dalam antrian')->get();
         return view('home.produksi.proses', compact('petugas', 'order', 'pilih_jenis', 'mesin'));
@@ -244,5 +244,20 @@ class ProduksiController extends Controller
     {
 
         return view('home.produksi.cetak');
+    }
+
+    public function keindex()
+    {
+        $pilih_jenis = JenisBahan::all();
+        $produksi = Produksi::all();
+
+        // Mengambil detail produksi untuk setiap produksi
+        $details = collect(); // Inisialisasi koleksi kosong
+        foreach ($produksi as $prod) {
+            $detail = DetailProduksi::where('id_produksi', $prod->id)->first();
+            $details->push($detail); // Tambahkan detail ke koleksi
+        }
+
+        return view('home.produksi.index', compact('pilih_jenis', 'produksi', 'details'));
     }
 }

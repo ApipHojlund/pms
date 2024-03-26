@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Produk;
+use App\Models\Bahan;
 use App\Models\JenisBahan;
+use App\Models\Mesin;
 use App\Http\Requests\StoreProdukRequest;
 use App\Http\Requests\UpdateProdukRequest;
 
@@ -59,9 +61,13 @@ class ProdukController extends Controller
      * @param  \App\Models\Produk  $produk
      * @return \Illuminate\Http\Response
      */
-    public function edit(Produk $produk)
+    public function edit($id)
     {
-        //
+        $pilih_jenis = JenisBahan::all();
+        $produk = Produk::find($id);
+        $bahan = Bahan::all();
+        $mesin = Mesin::where('id','!=',404)->get();
+        return view('home.produk.edit',compact('produk','pilih_jenis','mesin','bahan'));
     }
 
     /**

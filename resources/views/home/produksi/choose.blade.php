@@ -39,7 +39,7 @@
                                 </div>
                                 <div class="card-body bg-light">
                                     <center><span class="mdi mdi-codepen icon-lg text-danger"></span></center>
-                                    <center><a href="/detail_produksi" class="mt-3 btn btn-danger">Halaman Produk <i
+                                    <center><a href="/produk" class="mt-3 btn btn-danger">Halaman Produk <i
                                                 class="mdi mdi-arrow-right"></i></a></center>
                                 </div>
                             </div>

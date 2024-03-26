@@ -159,6 +159,7 @@ Route::post('/jenis_bahan/{id}/update',[JenisController::class,'update'])->middl
 
 //Produk
 Route::get('/produk',[ProdukController::class,'index'])->middleware('admin');
+Route::get('/produk/{id}/edit',[ProdukController::class,'edit'])->middleware('admin');
 
 
 //bahan
@@ -184,6 +185,7 @@ Route::get('/order/{id}/view-document', [OrderController::class, 'viewDocument']
 
 //produksi
 Route::get('/produksi',[ProduksiController::class,'utama'])->middleware('admin');
+Route::get('/produksi/index',[ProduksiController::class,'keindex'])->middleware('admin');
 Route::post('/pesanan/proses',[ProduksiController::class,'store'])->middleware('petugas');
 Route::get('/produksi/tambah',[ProduksiController::class,'createAdmin'])->middleware('admin');
 Route::get('/produksi/{id}/hapus',[ProduksiController::class,'hapus'])->middleware('admin');

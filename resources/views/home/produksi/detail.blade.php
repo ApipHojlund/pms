@@ -6,16 +6,20 @@
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-tittle">
-                            <a href="/produksi" class="btn btn-primary">back</a>
-                            <a href="/produksi/{{$produksi->id}}/cetak" class="btn btn-primary">Cetak</a>
-                        </h4>
-
                         @php
                             $no = 1;
                         @endphp
                         <div class="table-responsive">
                             <table class="table table-hover">
+                                <tr>
+                                    <td colspan="2" align="center">
+                                        <a href="/produksi/index" class="btn btn-primary col-lg-6">back</a>
+                                    </td>
+                                    <td align="center">
+                                        <a target="_Blank" href="/produksi/{{ $produksi->id }}/cetak"
+                                            class="btn col-lg-6 btn-success">Cetak <i class="mdi mdi-printer"></i></a>
+                                    </td>
+                                </tr>
                                 <tr>
                                     <td>Kode Produksi</td>
                                     <td>:</td>
@@ -72,10 +76,11 @@
                                             <td>Detail</td>
                                             <td align="left">:</td>
                                             <td>
-                                                <a href="/detail_produksi/{{$item->id}}/detail" class="btn btn-info d-grid">detail</a>
+                                                <a href="/detail_produksi/{{ $item->id }}/detail"
+                                                    class="btn btn-info d-grid">detail</a>
                                             </td>
                                         </tr>
-                                        </table>
+                                    </table>
                                 </div>
                             @endforeach
                         </div>

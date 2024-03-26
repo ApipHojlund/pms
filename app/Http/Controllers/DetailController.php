@@ -22,9 +22,17 @@ class DetailController extends Controller
      */
     public function index()
     {
+        $selesai = DetailProduksi::where('status','=','selesai')->get()
+                        ->count();
+        $ditahan = DetailProduksi::where('status','=','ditahan')->get()
+                        ->count();
+        $berhenti = DetailProduksi::where('status','=','berhenti')->get()
+                        ->count();
+        $dalam_proses = DetailProduksi::where('status','=','dalam proses')->get()
+                        ->count();
         $pilih_jenis = JenisBahan::all();
         $detail = DetailProduksi::all();
-        return view('home.detail.index',compact('pilih_jenis','detail'));
+        return view('home.detail.index',compact('pilih_jenis','detail','selesai','ditahan','berhenti','dalam_proses'));
     }
 
     /**

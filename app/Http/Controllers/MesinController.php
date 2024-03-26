@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Mesin;
+use App\Models\DetailProduksi;
 use App\Models\JenisBahan;
 
 class MesinController extends Controller
@@ -218,6 +219,11 @@ class MesinController extends Controller
     public function destroy($id)
     {
         $mesin = Mesin::find($id);
+        $detail = DetailProduksi::where('id_mesin','=',$mesin->id)->get();
+        $detail->update([
+            'status' => 'berhenti',
+            'id_mesin' => 404,
+        ]);
         $mesin->delete();
         return redirect()->back()->with('delete','data berhasil dihapus!');
     }

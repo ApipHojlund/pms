@@ -168,5 +168,4 @@
     {{-- DataTable --}}
     <script src="https://kit.fontawesome.com/your_fontawesome_kit_code.js" crossorigin="anonymous"></script>
 
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> --}}
-    "anonymous"></script>
+</body>

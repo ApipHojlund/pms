@@ -38,11 +38,11 @@
                                         <td>{{$pro->Bahan->nama}}</td>
                                         <td>{{$pro->Detail->Produksi->id}}</td>
                                         <td>
-                                            <a href="/pemesanan/{{$pro->id}}/edit" class="btn btn-warning">Edit</a>
-                                            <a href="/pemesanan/{{$pro->id}}/detail" class="btn btn-info">detail</a>
-                                            <button class="btn btn-danger" onclick="Delete('/pemesanan/{{$pro->id}}/hapus')">Hapus</button>
+                                            <a href="/produk/{{$pro->id}}/edit" class="btn btn-warning">Edit</a>
+                                            <a href="/produk/{{$pro->id}}/detail" class="btn btn-info">detail</a>
+                                            <button class="btn btn-danger" onclick="Delete('/produk/{{$pro->id}}/hapus')">Hapus</button>
                                             @if ($pro->status == 'dalam antrian')
-                                                <a href="/pemesanan/{{$pro->id}}/execute" class="btn btn-primary">execute</a>
+                                                <a href="/produk/{{$pro->id}}/execute" class="btn btn-primary">execute</a>
                                             @else
 
                                             @endif
@@ -51,6 +51,50 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row justify-content-between">
+                        <div class="card col-lg-3 mt-3">
+                            <div class="card-header">
+                                <center>
+                                    <h2 class="card-header text-primary">PRODUKSI</h2>
+                                </center>
+                            </div>
+                            <div class="card-body bg-light">
+                                <center><span class="mdi mdi-dropbox icon-lg text-primary"></span></center>
+                                <center><a href="/produksi/index" class="mt-3 btn btn-primary">Halaman Produksi <i
+                                            class="mdi mdi-arrow-right"></i></a></center>
+                            </div>
+                        </div>
+                        <div class="card col-lg-3 mt-3">
+                            <div class="card-header">
+                                <center>
+                                    <h2 class="card-header text-success">DETAIL PRODUKSI</h2>
+                                </center>
+                            </div>
+                            <div class="card-body bg-light">
+                                <center><span class="mdi mdi-magnify icon-lg text-success"></span></center>
+                                <center><a href="/detail_produksi" class="mt-3 btn btn-success">Halaman Detail Produksi
+                                        <i class="mdi mdi-arrow-right"></i></a></center>
+                            </div>
+                        </div>
+                        <div class="card col-lg-3 mt-3">
+                            <div class="card-header">
+                                <center>
+                                    <h2 class="card-header text-danger">Produk</h2>
+                                </center>
+                            </div>
+                            <div class="card-body bg-light">
+                                <center><span class="mdi mdi-codepen icon-lg text-danger"></span></center>
+                                <center><a href="/produk" class="mt-3 btn btn-danger">Halaman Produk <i
+                                            class="mdi mdi-arrow-right"></i></a></center>
+                            </div>
                         </div>
                     </div>
                 </div>
