@@ -1,0 +1,212 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-bottom: 20px;
+}
+
+.form-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 400px; /* Ubah lebar formulir sesuai kebutuhan */
+    max-width: 90%; /* Batasi lebar maksimum formulir */
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-header h2 {
+    color: #333;
+}
+
+.form-content {
+    margin-bottom: 20px;
+}
+
+.form-content input[type="text"],
+.form-content input[type="password"],
+.form-content select,
+.form-content textarea,
+.form-content input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-content button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-back{
+    width: 200%;
+    padding: 10px;
+    border: none;
+    background-color: #04ff00;
+    color: #1d1d1d;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-footer {
+    text-align: center;
+}
+
+.form-footer p {
+    margin: 0;
+}
+
+.form-footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.hidden {
+    display: none;
+}
+/* Tambahkan transisi untuk form-container */
+.form-container {
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Ketika form-container memiliki kelas hidden */
+.form-container.hidden {
+    transform: translateX(-100%);
+}
+
+/* Tambahkan transisi untuk form-content */
+.form-content {
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Ketika form-content memiliki kelas hidden */
+.form-content.hidden {
+    opacity: 0;
+}
+
+.alert {
+    position: relative;
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+  }
+
+  .alert-heading {
+    color: inherit;
+  }
+
+  .alert-link {
+    font-weight: 700;
+  }
+
+  .alert-dismissible {
+    padding-right: 3rem;
+  }
+
+  .alert-dismissible .btn-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    padding: 1.25rem 1rem;
+  }
+
+  .alert-primary {
+    color: #2a2e8f;
+    background-color: #dadbfc;
+    border-color: #c8cafa;
+  }
+
+  .alert-primary .alert-link {
+    color: #222572;
+  }
+
+  .alert-secondary {
+    color: #565656;
+    background-color: #f7f7f7;
+    border-color: #f3f3f3;
+  }
+
+  .alert-secondary .alert-link {
+    color: #454545;
+  }
+
+  .alert-success {
+    color: #05584a;
+    background-color: #cff8f1;
+    border-color: #b6f4ea;
+  }
+
+  .alert-success .alert-link {
+    color: #04463b;
+  }
+
+  .alert-info {
+    color: #045663;
+    background-color: #cef7fd;
+    border-color: #b6f3fd;
+  }
+
+  .alert-info .alert-link {
+    color: #03454f;
+  }
+
+  .alert-warning {
+    color: #655518;
+    background-color: #fef7d8;
+    border-color: #fef2c4;
+  }
+
+  .alert-warning .alert-link {
+    color: #514413;
+  }
+
+  .alert-danger {
+    color: #8f3737;
+    background-color: #fcdede;
+    border-color: #facece;
+  }
+
+  .alert-danger .alert-link {
+    color: #722c2c;
+  }
+
+  .alert-light {
+    color: #565656;
+    background-color: #f7f7f7;
+    border-color: #f3f3f3;
+  }
+
+  .alert-light .alert-link {
+    color: #454545;
+  }
+
+  .alert-dark {
+    color: #000e21;
+    background-color: #ccd1d7;
+    border-color: #b3b9c3;
+  }
+
+  .alert-dark .alert-link {
+    color: #000b1a;
+  }

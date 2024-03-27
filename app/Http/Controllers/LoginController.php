@@ -36,19 +36,21 @@ class LoginController extends Controller
 
     public function store(Request $request)
     {
-        $img = $request->file('foto');
-        $nama = hexdec(uniqid());
-        $ext = strtolower($img->getClientOriginalExtension());
-        $foto = $nama.'.'.$ext;
-        $img->move('image/user/',$foto);
-
         $validated = $request->validate([
             'nama' => 'required | max:250 | min:1',
             'username' => 'required | max:250 | min:1',
             'password' => 'required | max:250 | min:5',
             'alamat' => 'required | min:15',
             'no_telp' => 'required | min:4 ',
+            'level' => 'required',
+            'foto' => 'required'
         ]);
+
+        $img = $request->file('foto');
+        $nama = hexdec(uniqid());
+        $ext = strtolower($img->getClientOriginalExtension());
+        $foto = $nama.'.'.$ext;
+        $img->move('image/user/',$foto);
 
         User::create([
             'nama' => $request -> nama,

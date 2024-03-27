@@ -217,6 +217,15 @@ class DetailProduksiController extends Controller
     public function destroy($id)
     {
         $detail = DetailProduksi::find($id);
+        $idd = $detail->id;
+        $produk = Produk::where('id_detail','=',$idd)->get();
+        $idpes = $detail->kode_pesanan;
+        $pesanan = Pesanan::find('id','=',$idpes)->get();
+        $pesanan->update([
+            'status' => 'berhenti',
+        ]);
+
+        $produk->delete();
         $detail->delete();
         return redirect('detail');
     }

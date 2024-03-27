@@ -4,102 +4,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="{{ asset('assets/img/i.png') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="{{ asset('template/css/style1.css') }}">
-    <script src="{{ asset('template/vendors/toastr/toastr.min.css') }}"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
-        integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Register</title>
+    <title>Login dan Register</title>
+    <link rel="stylesheet" href="{{ asset('login.css') }}">
 </head>
 
 <body>
-    @if (Session::has('delete'))
-        <script>
-            toastr.options = {
-                "progressBar": true,
-            }
-            toastr.error("{{ Session::get('delete') }}");
-        </script>
-    @endif
-    <div class="container" id="container">
-        <div class="form-container sign-in">
-            {{-- <div class="scrollbar" id="style-1">
-                <div class="force-overflow"> --}}
-            <form action="/register/store" method="post" role="form" enctype="multipart/form-data">
-                @csrf
-                <img src="{{ asset('/assets/img/') }}" alt="main_logo">
-                <h1>Register</h1>
-                <span>Enter Your Data</span>
-                <input class="form-control @error('nama') is-invalid @enderror" type="text" name="nama"
-                    placeholder="Nama">
-                @error('nama')
-                    <div class="invalidate-feedback">
-                        {{ $message }}
-                    </div>
-                @enderror
-                <input class="form-control @error('alamat') is-invalid @enderror" type="text" name="alamat"
-                    placeholder="Alamat">
-                @error('alamat')
-                    <div class="invalidate-feedback">
-                        {{ $message }}
-                    </div>
-                @enderror
-                <input class="form-control @error('username') is-invalid @enderror" type="text" name="username"
-                    placeholder="Username">
-                @error('username')
-                    <div class="invalidate-feedback">
-                        {{ $message }}
-                    </div>
-                @enderror
-                <input class="form-control @error('password') is-invalid @enderror" type="password" name="password"
-                    placeholder="Password">
-                @error('password')
-                    <div class="invalidate-feedback">
-                        {{ $message }}
-                    </div>
-                @enderror
-                <input class="form-control @error('no_telp') is-invalid @enderror" type="number" name="no_telp"
-                    placeholder="Nomor Telpon">
-                @error('no_telp')
-                    <div class="invalidate-feedback">
-                        {{ $message }}
-                    </div>
-                @enderror
-                <div class="mb-3">
-                    {{-- <label for="" class="form-label">Masukan Foto</label> --}}
-                    <input required type="file" class="form-control" name="foto" id="" placeholder=""
-                        aria-describedby="fileHelpId" />
-                </div>
-                <select required class="form-control" name="level" id="">
-                    <option selected disabled>-Select one-</option>
-                    {{-- <option value="admin">Admin</option> --}}
-                    <option value="petugas">Petugas</option>
-                    <option value="customer">Customer</option>
-                </select>
-                <button class="btn mt-3" type="submit">Register</button>
-                <a href="/" class="hidden" id="login">Back</a>
-            </form>
-            {{-- </div>
-            </div> --}}
+    <div class="container">
+        <div class="form-container">
+            <div class="form-header">
+                <h2>Daftar</h2>
+            </div>
+            <div class="form-content">
+                <form action="/register/store" method="post" enctype="multipart/form-data">
+                    <input type="text" class="input-text" name="nama" placeholder="Nama Lengkap"><br>
+                    <input type="text" class="input-text" name="username" placeholder="Username"><br>
+                    <input type="password" class="select-option" name="password" placeholder="Kata Sandi"><br>
+                    <select name="level">
+                        <option value="user">User</option>
+                        <option value="admin">Admin</option>
+                    </select><br>
+                    <textarea name="alamat" class="input-area" id="" cols="30" rows="10"></textarea><br>
+                    <input type="text" class="input-text" name="no_telp" placeholder="Nomor Telepon"><br>
+                    <input type="file" class="input-text" name="foto"><br>
+                    <button type="submit" class="btn-submit">Daftar</button>
+                </form>
+            </div>
+            <div class="form-footer">
+                <p>Sudah punya akun? <a href="#" class="login-button">Masuk di sini</a></p>
+            </div>
         </div>
-        <div class="toggle-container">
-            <div class="toggle">
-                <div class="toggle-panel toggle-right">
-                    <h1>Hello, User!</h1>
-                    <p>Register with your personal details to use all of site features</p>
-                </div>
+        <div class="form-container hidden">
+            <div class="form-header">
+                <center>
+                    <img src="{{ asset('image/logo/P2.png') }}" height="160px" width="160px" alt="logo aplikasi">
+                </center>
+                <h2>Masuk</h2>
+            </div>
+            <div class="form-content">
+                <form action="/PostLogin" method="post">
+                    <input type="text" name="username" placeholder="Username" value="{{ old('username') }}">
+                    <input type="password" name="password" placeholder="Kata Sandi" value="{{ old('password') }}">
+                    <button type="submit">Masuk</button>
+                </form>
+            </div>
+            <div class="form-footer">
+                <p>Belum punya akun? <a href="#" class="register-button">Daftar di sini</a></p>
             </div>
         </div>
     </div>
+    <script src="{{ asset('register.js') }}"></script>
+    <script>
+        const loginButton = document.querySelector(".login-button");
+        const formContainer = document.querySelector(".form-container");
 
-    <script src="{{ asset('assets/js/plugins/script.js') }}"></script>
-    <script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
-    <link rel="stylesheet" href="{{ asset('template/vendors/toastr/toastr.min.js') }}">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
-        integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        loginButton.addEventListener("click", () => {
+            formContainer.classList.remove("hidden");
+        });
+    </script>
 </body>
 
 </html>
