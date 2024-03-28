@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Models\JenisBahan;
+use App\Models\Bahan;
 use App\Models\Produksi;
 use App\Models\Produk;
 use App\Models\Mesin;
@@ -36,7 +37,7 @@ class ProduksiController extends Controller
     public function create()
     {
         $petugas = User::where('level', '=', 'Petugas')->get();
-        $mesin = Mesin::where('id','!=',404)->get();
+        $mesin = Mesin::where('id', '!=', 404)->get();
         $pilih_jenis = JenisBahan::all();
         $order = Pesanan::where('status', '=', 'dalam antrian')->get();
         return view('page.produksi.proses', compact('petugas', 'order', 'pilih_jenis', 'mesin'));
@@ -234,7 +235,7 @@ class ProduksiController extends Controller
     public function createAdmin()
     {
         $petugas = User::where('level', '=', 'Petugas')->get();
-        $mesin = Mesin::where('id','!=',404)->get();
+        $mesin = Mesin::where('id', '!=', 404)->get();
         $pilih_jenis = JenisBahan::all();
         $order = Pesanan::where('status', '=', 'dalam antrian')->get();
         return view('home.produksi.proses', compact('petugas', 'order', 'pilih_jenis', 'mesin'));
@@ -242,9 +243,48 @@ class ProduksiController extends Controller
 
     public function cetak($id)
     {
+        //manggil id req
+        $detail = DetailProduksi::where('id_produksi','=',$id)->first();
+        // $produk = Produk::where('id_detail','=',$detail->id)->get();
+        // $produks = Produk::where('id_detail','=',$detail->id)->first();
+        // $bahan = Bahan::where('id','=',$produks->id_bahan)->first();
+        // $mesin = Mesin::where('id','=',$produks->id_mesin)->first();
 
-        return view('home.produksi.cetak');
+        // //ngitung req
+        // $harga_bahan = $bahan->harga * $produks->berat;
+        // $biaya_mesin = $mesin->pembulatan_biaya * $produks->Detail->waktu;
+        // $harga_kotor = $harga_bahan + $biaya_mesin;
+        // $profit = $harga_kotor + $produks->profit;
+        // $harga_jual = $harga_kotor + $profit;
+        $produksi = Produksi::find($id);
+    $detailProduksi = DetailProduksi::where('id_produksi', $id)->get();
+
+    $data = [];
+    foreach ($detailProduksi as $detail) {
+        $produk = Produk::where('id_detail', $detail->id)->first();
+
+        $data[] = [
+            'tanggal' => $detail->tanggal,
+            'note' => $detail->note,
+            'nama_model' => $produk->nama_model,
+            'material' => $produk->Bahan->nama,
+            'berat' => $produk->berat,
+            'harga_material' => $produk->Bahan->harga_bahan * $produk->berat,
+            'mesin' => $produk->Mesin->nama,
+            'waktu_pengerjaan' => $detail->waktu,
+            'harga_jam' => $produk->Mesin->pembulatan_biaya,
+            'biaya_mesin' => $detail->waktu * $produk->Mesin->pembulatan_biaya,
+            'jumlah_produksi' => $detail->jumlah_produksi,
+            'harga_proses' => $detail->jumlah_produksi * $produk->profit,
+            'profit' => $produk->profit,
+            'harga_produk' => $produk->harga_jual,
+        ];
     }
+
+        return view('home.produksi.cetak',compact('produksi','data','detail'));
+        // return view('home.produksi.cetak',compact('produk','harga_bahan','biaya_mesin','harga_kotor','harga_jual'));
+    }
+
 
     public function keindex()
     {
